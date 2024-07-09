@@ -4,12 +4,12 @@
 
 canvas-nest.js@^2.0.4:
   version "2.0.4"
-  resolved "https://registry.yarnpkg.com/canvas-nest.js/-/canvas-nest.js-2.0.4.tgz#e010075d5dbbf3cbfc1ef18942c266b1af873469"
+  resolved "https://registry.npmjs.org/canvas-nest.js/-/canvas-nest.js-2.0.4.tgz"
   integrity sha512-Wgc+39fQBIP8fm9+Rq+Zt6+QLHZRsIKpaOQPL5KcWPlXTAalCKY4KCuklY7qzzZqBRF/t2APIrk+PuRw6ZlOog==
   dependencies:
     size-sensor "^0.2.0"
 
 size-sensor@^0.2.0:
   version "0.2.6"
-  resolved "https://registry.yarnpkg.com/size-sensor/-/size-sensor-0.2.6.tgz#6fe43afd570786f097171834002a97fe0b19a3da"
+  resolved "https://registry.npmjs.org/size-sensor/-/size-sensor-0.2.6.tgz"
   integrity sha512-0EZ0tXXjyRl9R9+JpoBdH57Xpnbf5NTyDdj7fnFL6KqCsdKyah286ShMflnV2SonnrSFH4OAT/52Jy8qqnoerg==
