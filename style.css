@@ -95,7 +95,10 @@ main {
 /* @media screen and (max-width:800px) { */
 @media screen and (max-width:1080px) {
 
-    body {
+    body,
+    main,
+    p,
+    ul li {
         font-size: 28px;
     }
 
