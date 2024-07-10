@@ -71,6 +71,7 @@ header {
 }
 
 main {
+    /* color: black; */
     visibility: visible;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -85,7 +86,11 @@ main {
     left: 22%;
 }
 
-
+#main_ ul li a {
+    color: black;
+    text-decoration: none;
+    line-height: 2;
+}
 
 /* @media screen and (max-width:800px) { */
 @media screen and (max-width:1080px) {
