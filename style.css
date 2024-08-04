@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: myCalibriLight;
-    src: url(./font/Calibri-Light.woff);
+    src: url('./font/Calibri-Light.woff');
 }
 
 /* --------------------------------------------------- */
@@ -93,7 +93,7 @@ main {
 }
 
 /* @media screen and (max-width:800px) { */
-@media screen and (max-width:1080px) {
+@media screen and(max-width:1080px) {
 
     body,
     main,
@@ -198,8 +198,8 @@ main {
     border-radius: 15px;
     text-decoration: none;
     width: 100%;
-    padding: 5px 0px;
-    margin: 3px 3px;
+    padding: 5px 0;
+    margin: 3px;
     background-color: rgba(255, 165, 165, 0.336);
     border: 1px solid rgba(255, 165, 165, 0.336);
 }
@@ -311,8 +311,33 @@ main {
 
 #Other-Contents {
     padding: 5px;
-    ;
 }
+
+.showcase {
+    /* project */
+    color: black;
+    text-decoration: none;
+    border-radius: 15px;
+    border: black solid 1px;
+    background-color: rgba(255, 165, 165, 0.336);
+    margin-bottom: 6px;
+
+    img {
+        width: 200px;
+        border-radius: 15px;
+    }
+    h3 {
+        padding: 6px;
+    }
+    p {
+        padding: 6px;
+    }
+}
+.showcase:hover {
+    /* background-color: rgba(144, 252, 122, 0.336); */
+    transform: scale(1.02);
+}
+
 
 .hundredPercentWidth {
     width: 100%;
@@ -324,9 +349,8 @@ footer {
     /* margin: 10px; */
     padding-bottom: 1px;
     /* position: static; */
-    bottom: 0px;
+    bottom: 0;
 }
-
 
 
 /* --------------------------------------------------- */
