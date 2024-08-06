@@ -277,6 +277,42 @@ main {
     }
 }
 
+.Short-Myself-icons {
+    padding-bottom: 5px;
+
+    a {
+        color: black;
+        line-height: 4vh;
+        margin: 4px;
+        padding: 5px;
+
+        .fa-regular.fa-envelope.fa-xl:hover {
+            color: brown;
+        }
+
+        .fa-solid.fa-graduation-cap.fa-xl:hover {
+            color: #e95f54;
+        }
+
+        .fa-brands.fa-linkedin.fa-xl:hover {
+            color: #126bc4;
+        }
+
+        .fa-brands.fa-square-twitter.fa-xl:hover {
+            color: #249ef0;
+        }
+
+        .fa-brands.fa-whatsapp.fa-xl:hover {
+            color: #2cd46b;
+        }
+
+        .fa-brands.fa-telegram.fa-xl:hover {
+            color: #30aded;
+        }
+    }
+
+}
+
 #About-Me {
     /* border: 2px dotted rgb(255, 52, 86); */
     display: flex;
@@ -385,6 +421,10 @@ footer {
     left: 5px;
     bottom: 5px;
     z-index: 999;
+}
+
+#telegram_button :hover {
+    transform: scale(1.1);
 }
 
 #telegram_button img {
