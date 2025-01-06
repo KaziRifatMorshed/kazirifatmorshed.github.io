@@ -1,11 +1,3 @@
-/* @font-face {
-    font-family: 'Calibri_Light';
-    font-style: normal;
-    font-weight: 300;
-    src: local(''),
-        url(./font/Calibri-Light.woff) format('woff');
-} */
-
 @font-face {
     font-family: myCalibriLight;
     src: url("./font/Calibri-Light.woff");
@@ -21,7 +13,6 @@
 
 body {
     /* height: 100vh; THIS PREVENTED canvas-nest from working in whole site*/
-    /* background-image: url("./images/3b1b-large-center.png"); */
     background-image: url("./images/3b1b-large-center.webp");
     background-repeat: no-repeat;
     background-position: center;
@@ -97,25 +88,16 @@ main {
     line-height: 2;
 }
 
-/* @media screen and (max-width:800px) { */
-@media screen and(max-width: 1080px) {
-
-    body,
-    main,
-    p,
-    ul li {
-        font-size: 28px;
+@media screen and (max-width: 768px) {
+    #aside_bar {
+        visibility: hidden;
     }
 
     header button {
         visibility: visible;
     }
 
-    #aside_bar {
-        visibility: hidden;
-    }
-
-    main {
+    #main_ {
         visibility: visible;
         display: flex;
         flex-wrap: wrap;
@@ -149,7 +131,6 @@ main {
     }
 }
 
-/* @media screen and (max-width:1258px) {} */
 
 ::-moz-selection {
     /* Code for Firefox */
