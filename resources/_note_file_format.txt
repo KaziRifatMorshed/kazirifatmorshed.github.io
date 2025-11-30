@@ -1,2 +1,4 @@
 file format note:
 ODP - Open Document Presentation (Use Libre Office)
+md - Markdown
+svg - Adobe Illustrator or Inkscape
