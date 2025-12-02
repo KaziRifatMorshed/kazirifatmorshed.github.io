@@ -74,7 +74,8 @@ main {
     border: 1px solid black;
     border-radius: 15px;
     /*padding: 6px; // this padding created issue in mobile view*/
-    width: 80%;
+    /* width: 60vw; */
+    width: 60%;
     justify-content: center;
     /* align-items: center; Kajer na */
     position: relative;
@@ -92,33 +93,57 @@ main {
 }
 
 @media screen and (max-width: 1080px) {
-    main {
+    #aside_bar {
+        visibility: hidden;
+    }
+
+    header button {
+        visibility: visible;
+    }
+
+    #main_ {
+        visibility: visible;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
         width: 100%;
         left: 0;
     }
 
-    header {
-        font-size: 14px;
+    #Short-Myself-and-About-Me {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
     }
 
-    #aside_bar {
-        display: none;
+    #Short-Myself {
+        /* width: 100%; */
+        /* width: 40vw; */
+        justify-content: space-evenly;
     }
 
-    #ShortcutsNavigationBar {
-        display: block;
+    #About-Me {
+        /* width: 100vw; */
+        /* position: sticky;  */
+        width: 100%;
+        max-width: 100%;
+        /* this 100% of the prev 60% */
+        /* border: #008b00 dashed 5px; */
     }
-}
 
-@media screen and (max-width: 600px) {
-    body {
-        font-size: 16px;
-    }
-}
+    #Showcase {
+        width: 100%;
+        /* border: 2px solid black; */
+        display: table-row;
+        /*flex-wrap: wrap;*/
+        justify-content: center;
 
-@media screen and (max-width: 400px) {
-    body {
-        font-size: 14px;
+        img {
+            width: 100%;
+        }
     }
 }
 
@@ -146,7 +171,7 @@ main {
     /* filter: blur(6px); */
     /* position: fixed; */
     height: fit-content;
-    width: 20%;
+    width: 20vw;
     min-width: 160px;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -156,7 +181,7 @@ main {
     border: 1px solid black;
     border-radius: 15px;
 
-    position: relative;
+    position: fixed;
     /* position: sticky; */
     top: 160px; /*it was -20, changed to 160px*/
     z-index: 999;
