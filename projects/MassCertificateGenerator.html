@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+    <!-- https://kazirifatmorshed.github.io/index.html -->
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Project : Mass Certificate Generator</title>
+        <link
+            rel="shortcut icon"
+            href="../icons/MCG_logo.png"
+            type="image/png"
+        />
+        <link rel="stylesheet" href="../style.css" />
+        <link
+            href="https://fonts.cdnfonts.com/css/calibri-light"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <script
+            src="https://kit.fontawesome.com/0da6f7f687.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+
+    <body>
+        <div id="full_body">
+            <div id="telegram_button">
+                <a href="https://www.t.me/FiXiReULV"
+                    ><img
+                        src="../icons/telegram.svg"
+                        alt="Contact me in telegram (Most Preferable)"
+                        id="telegram_button-icon"
+                /></a>
+            </div>
+            <button type="button" onclick="showBG()" id="ShowBG">
+                <i class="fa-regular fa-flag"></i>
+            </button>
+            <!-- HEADER -->
+            <header class="animate__animated animate__fadeInDown">
+                <a
+                    href="https://kazirifatmorshed.github.io/"
+                    id="link-home"
+                    alt="Homepage"
+                >
+                    <h1>
+                        Kazi Rifat Morshed
+                        <sup
+                            ><i
+                                class="fa-solid fa-arrow-up-right-from-square fa-2xs"
+                            ></i
+                        ></sup>
+                    </h1>
+                    <p>
+                        Undergraduate Student (B.Sc. Engg.) of Computer Science
+                        and Engineering (CSE)
+                    </p>
+                </a>
+                <button
+                    type="button"
+                    id="ShortcutsNavigationBar"
+                    onclick="showAsideBar()"
+                >
+                    <i
+                        class="fa-solid fa-chevron-down fa-sm"
+                        style="color: #000000"
+                    ></i>
+                    Navigation Bar (Shortcuts)
+                </button>
+            </header>
+            <!------------------------------------------------------>
+            <div id="content-body">
+                <!-- Side Bar -->
+                <aside id="aside_bar">
+                    <h1 id="h1Shortcuts">🌱Shortcuts</h1>
+                    <a
+                        href="https://drive.google.com/drive/folders/11U0uNNmST4ZXQe2FrJwbB8MzChq5wC5n?usp=sharing"
+                        ><i class="fa-regular fa-file fa-sm"></i> CV</a
+                    >
+                    <a href="../Contact.html"
+                        ><i class="fa-regular fa-address-book fa-sm"></i>
+                        Contact and Social</a
+                    >
+                    <a href="https://blogofkazirifatjr.blogspot.com/"
+                        ><i class="fa-brands fa-blogger fa-sm"></i> Blog</a
+                    >
+                    <a href="../Album.html"
+                        ><i class="fa-regular fa-images fa-sm"></i> Album</a
+                    >
+                    <a href="../MyCaptures.html"
+                        ><i class="fa-solid fa-camera fa-sm"></i> My Captures</a
+                    >
+                    <a href="../resources.html"
+                        ><i class="fa-regular fa-folder-open fa-sm"></i>
+                        Resources</a
+                    >
+                    <a href="../Contributions.html"
+                        ><i class="fa-solid fa-people-carry-box fa-sm"></i>
+                        Contributions</a
+                    >
+                    <!-- <li><a href="">LinkedIn</a></li> -->
+                    <a href="../research.html"
+                        ><i class="fa-solid fa-book-open-reader fa-sm"></i>
+                        Research</a
+                    >
+                    <a href="https://github.com/KaziRifatMorshed"
+                        ><i class="fa-brands fa-square-github fa-sm"></i>
+                        Github</a
+                    >
+                    <a href="../projects.html"
+                        ><i class="fa-solid fa-list-check fa-sm"></i>
+                        Projects</a
+                    >
+                    <a
+                        href="https://github.com/SharafatKarim/quotes#kazirifatmorshed"
+                        ><i class="fa-solid fa-quote-left fa-sm"></i> Quotes</a
+                    >
+                    <a href="../personalInterest.html"
+                        ><i class="fa-solid fa-feather fa-sm"></i> Personal
+                        Interests</a
+                    >
+                </aside>
+
+                <main id="main_" class="animate__animated animate__fadeInUp">
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <img src="../icons/MCG_logo.png" alt="MCG Logo" style="height: 100px; width: auto;">
+                        <h1>Mass Certificate Generator (MCG)</h1>
+                    </div>
+
+                    <div class="project-overview">
+                        <p>
+                            <strong>Mass Certificate Generator (MCG)</strong> is a GUI program to generate PDF certificates from a CSV/Excel file containing participant data; useful for university clubs and programs to create certificates within no time!
+                        </p>
+                        <div class="repo-link" style="margin-top: 15px;">
+                            <a href="https://gitlab.com/KaziRifatMorshed/mass-certificate-generator" target="_blank" style="text-decoration: none; color: #E24329; font-weight: bold; font-size: 1.2em;">
+                                <i class="fa-brands fa-gitlab"></i> View on GitLab
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="video-demonstration">
+                        <h2>Video Demonstration</h2>
+                        <div class="video-container">
+                            <iframe width="100%" src="https://www.youtube.com/embed/0W1JGwzVvLk?si=NVgp46Tpe19Y5Qe-" title="Mass Certificate Generator (MCG) - YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <div class="features">
+                        <h2>Features</h2>
+
+                        <div class="feature-item">
+                            <h3>1. Tabbed Pipeline Workflow</h3>
+                            <p>MCG guides you through a logical sequence of steps using a tabbed interface:</p>
+                            <ul>
+                                <li><strong>Template Selection:</strong> Select the base PDF template.</li>
+                                <li><strong>Coordinate Calibration:</strong> Define text positioning, where the text will appear on the certificate.</li>
+                                <li><strong>Font Management:</strong> Import and manage custom fonts (TTF, OTF, WOFF).</li>
+                                <li><strong>Text Body Configuration:</strong> Define what text (constant or variable) to overlay.</li>
+                                <li><strong>Data Import:</strong> Load participant data from CSV or Excel files.</li>
+                                <li><strong>Export Settings:</strong> Configure output format and naming. You can save individual PDF or single file containing all certificate pages!</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-item">
+                            <h3>2. Real-time Live Preview</h3>
+                            <ul>
+                                <li><strong>Dynamic Rendering & PDF Viewer:</strong> There is an integrated PDF viewer to show exactly how the final output will look, including font styles, colors, and positioning.</li>
+                                <li><strong>Debug Mode:</strong> Includes a toggle to visualize the text boundary boxes, helping with precise alignment.</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-item">
+                            <h3>3. Dynamic Font & Text Management</h3>
+                            <ul>
+                                <li><strong>Custom Fonts:</strong> Users can add multiple custom font files and assign them nicknames for easy selection.</li>
+                                <li><strong>Mixed Content:</strong> Supports adding multiple "Text Blocks" which can be:
+                                    <ul>
+                                        <li>Variable: Pulled from specific columns in your imported data (e.g., "Full Name").</li>
+                                        <li>Constant: Static text that appears on every certificate.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Styling Options:</strong> Each text block supports individual settings for font, size, color, and formatting (Bold, Italic, Underline).</li>
+                                <li><strong>Reordering:</strong> A simple up/down movement system to change the stacking order of text blocks.</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-item">
+                            <h3>4. Data Integration & Bulk Export</h3>
+                            <ul>
+                                <li><strong>File Support:</strong> Import data from CSV or Excel (.xlsx, .xls).</li>
+                                <li><strong>Flexible Output:</strong>
+                                    <ul>
+                                        <li>Single File: Generate one large PDF containing all certificates.</li>
+                                        <li>Individual Files: Generate a separate PDF for each row of data.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Smart Naming:</strong> Choose a column from the data (like "Name" or "ID") to automatically name the individual exported PDF files.</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-item">
+                            <h3>5. Session Persistence</h3>
+                            <ul>
+                                <li><strong>Auto-Save/Load:</strong> The application remembers your entire configuration—including file paths, font selections, text blocks, and coordinates—across sessions. If you close MCG, it will restore your exact progress when reopened.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <!-- END OF <div id="content-body"> having SHORTCUTS and MAIN -->
+            <!-- . -->
+            <footer class="animate__animated animate__fadeIn">
+                <p>
+                    Self developed website. Hosted in Github Pages. <br />
+                    ©March 2026 <br />Sonadanga, Khulna-9100, Bangladesh.
+                </p>
+            </footer>
+        </div>
+
+        <script>
+            function showAsideBar() {
+                var _aside_bar_ = document.getElementById("aside_bar");
+                if (_aside_bar_.style.visibility === "hidden") {
+                    _aside_bar_.style.visibility = "visible";
+                } else {
+                    _aside_bar_.style.visibility = "hidden";
+                }
+            }
+        </script>
+        <script>
+            function showBG() {
+                var _bg_ = document.getElementById("main_");
+                if (_bg_.style.visibility === "visible") {
+                    _bg_.style.visibility = "hidden";
+                } else {
+                    _bg_.style.visibility = "visible";
+                }
+            }
+        </script>
+
+        <script
+            type="text/javascript"
+            color="2,0,255"
+            pointColor="2,0,255"
+            opacity="0.9"
+            zIndex="-1"
+            count="200"
+            src="../canvas-nest.js"
+        ></script>
+
+        <script type="text/javascript" src="../canvas-nest.umd.js"></script>
+
+        <!-- canvas-nest -->
+        <!-- <script type="text/javascript" src="/node_modules/canvas-nest.js/dist/canvas-nest.js"></script><canvas
+        id="canvas-nest"></canvas> -->
+    </body>
+</html>
