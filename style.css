@@ -49,7 +49,7 @@ header {
 
     button {
         background-color: rgba(255, 165, 165, 0.336);
-        border: 1px solid rgba(255, 165, 165, 0.336);
+        border: 1px solid rgba(72, 18, 18, 0.52);
         border-radius: 15px;
         margin-bottom: 5px;
     }
@@ -167,13 +167,13 @@ main {
 }
 
 #aside_bar {
-    /* background-color: white; */
+    /* background-color: rgba(255, 255, 255, 0.2); */
     /* filter: blur(6px); */
     /* position: fixed; */
     height: fit-content;
     width: 20vw;
     min-width: 160px;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(4px);
     padding-right: 10px;
     padding-left: 5px;
@@ -183,7 +183,8 @@ main {
 
     position: fixed;
     /* position: sticky; */
-    top: 160px; /*it was -20, changed to 160px*/
+    top: 160px;
+    /*it was -20, changed to 160px*/
     z-index: 999;
 }
 
@@ -201,7 +202,7 @@ main {
     padding: 5px 0;
     margin: 3px;
     background-color: rgba(255, 165, 165, 0.336);
-    border: 1px solid rgba(255, 165, 165, 0.336);
+    border: 1px solid rgba(72, 18, 18, 0.52);
 }
 
 #aside_bar a:hover {
@@ -354,7 +355,8 @@ main {
     /*margin-bottom: 50px ;*/
     border: black solid 1px;
     background-color: rgba(255, 165, 165, 0.336);
-    margin: 10px auto; /* auto solved the issue ; Center the .showcase element within the parent (optional) */
+    margin: 10px auto;
+    /* auto solved the issue ; Center the .showcase element within the parent (optional) */
     /* max-height: 10em; Photo thik position e thik ache */
     /* max-height: 20em; */
 
