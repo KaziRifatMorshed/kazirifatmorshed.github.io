@@ -80,6 +80,8 @@ main {
     /* align-items: center; Kajer na */
     position: relative;
     left: 22%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 #main_ {
