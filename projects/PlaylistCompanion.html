@@ -1,261 +1,95 @@
-<!doctype html>
-<html lang="en">
-    <!-- https://kazirifatmorshed.github.io/index.html -->
+---
+layout: default
+title: "Project : PlaylistCompanion"
+---
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Project : PlaylistCompanion</title>
-        <link
-            rel="shortcut icon"
-            href="../images/projects/PlaylistCompanion/logo.webp"
-            type="image/webp"
-        />
-        <link rel="stylesheet" href="../style.css" />
-        <link
-            href="https://fonts.cdnfonts.com/css/calibri-light"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        />
-        <script
-            src="https://kit.fontawesome.com/0da6f7f687.js"
-            crossorigin="anonymous"
-        ></script>
-    </head>
+<main id="main_" class="animate__animated animate__fadeInUp">
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <img src="{{ site.baseurl }}/images/projects/PlaylistCompanion/logo.webp" alt="PlaylistCompanion Logo" style="height: 100px; width: auto; border-radius: 15px; max-width: 100%;">
+        <h1>PlaylistCompanion</h1>
+    </div>
 
-    <body>
-        <div id="full_body">
-            <div id="telegram_button">
-                <a href="https://www.t.me/FiXiReULV"
-                    ><img
-                        src="../icons/telegram.svg"
-                        alt="Contact me in telegram (Most Preferable)"
-                        id="telegram_button-icon"
-                /></a>
-            </div>
-            <button type="button" onclick="showBG()" id="ShowBG">
-                <i class="fa-regular fa-flag"></i>
-            </button>
-            <!-- HEADER -->
-            <header class="animate__animated animate__fadeInDown">
-                <a
-                    href="https://kazirifatmorshed.github.io/"
-                    id="link-home"
-                    alt="Homepage"
-                >
-                    <h1>
-                        Kazi Rifat Morshed
-                        <sup
-                            ><i
-                                class="fa-solid fa-arrow-up-right-from-square fa-2xs"
-                            ></i
-                        ></sup>
-                    </h1>
-                    <p>
-                        Undergraduate Student (B.Sc. Engg.) of Computer Science
-                        and Engineering (CSE)
-                    </p>
+    <div class="project-overview">
+        <img src="{{ site.baseurl }}/images/projects/PlaylistCompanion/PlaylistCompanion-Banner.png" alt="PlaylistCompanion Banner" style="width: 100%; max-width: 100%; height: auto; border-radius: 15px; margin-top: 20px; border: 1px solid #ccc; box-sizing: border-box;">
+        <p style="margin-top: 20px; line-height: 1.6;">
+            <strong>PlaylistCompanion</strong> is a cross-platform desktop application designed to streamline your video learning experience. Built with <strong>Qt6</strong>, it offers a robust set of tools for managing video playlists, tracking learning progress, and taking notes, all within a clean and intuitive interface.
+        </p>
+        <div class="repo-link" style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 15px; align-items: center;">
+            <a href="https://github.com/KaziRifatMorshed/Playlist-Companion" target="_blank" style="text-decoration: none; color: #333; font-weight: bold; font-size: 1.2em; margin-right: 10px;">
+                <i class="fa-brands fa-github"></i> View on GitHub
+            </a>
+            
+            <div class="downloads" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+                <span style="font-weight: bold; font-size: 1.5em; color: #333; padding-bottom: 2px;">
+                    <i class="fa-solid fa-download"></i> Download:
+                </span>
+                <a href="#" class="download-btn" title="Download for Windows" style="background-color: rgba(255, 255, 255, 0.2); border: 1px solid black; padding: 5px 15px; border-radius: 10px; color: black; font-weight: bold; text-decoration: none;">
+                    <i class="fa-brands fa-windows"></i> Windows
                 </a>
-                <button
-                    type="button"
-                    id="ShortcutsNavigationBar"
-                    onclick="showAsideBar()"
-                >
-                    <i
-                        class="fa-solid fa-chevron-down fa-sm"
-                        style="color: #000000"
-                    ></i>
-                    Navigation Bar (Shortcuts)
-                </button>
-            </header>
-            <!------------------------------------------------------>
-            <div id="content-body">
-                <!-- Side Bar -->
-                <aside id="aside_bar">
-                    <h1 id="h1Shortcuts">🌱Shortcuts</h1>
-                    <a
-                        href="https://drive.google.com/drive/folders/11U0uNNmST4ZXQe2FrJwbB8MzChq5wC5n?usp=sharing"
-                        ><i class="fa-regular fa-file fa-sm"></i> CV</a
-                    >
-                    <a href="../Contact.html"
-                        ><i class="fa-regular fa-address-book fa-sm"></i>
-                        Contact and Social</a
-                    >
-                    <a href="https://blogofkazirifatjr.blogspot.com/"
-                        ><i class="fa-brands fa-blogger fa-sm"></i> Blog</a
-                    >
-                    <a href="../Album.html"
-                        ><i class="fa-regular fa-images fa-sm"></i> Album</a
-                    >
-                    <a href="../MyCaptures.html"
-                        ><i class="fa-solid fa-camera fa-sm"></i> My Captures</a
-                    >
-                    <a href="../resources.html"
-                        ><i class="fa-regular fa-folder-open fa-sm"></i>
-                        Resources</a
-                    >
-                    <a href="../Contributions.html"
-                        ><i class="fa-solid fa-people-carry-box fa-sm"></i>
-                        Contributions</a
-                    >
-                    <!-- <li><a href="">LinkedIn</a></li> -->
-                    <a href="../research.html"
-                        ><i class="fa-solid fa-book-open-reader fa-sm"></i>
-                        Research</a
-                    >
-                    <a href="https://github.com/KaziRifatMorshed"
-                        ><i class="fa-brands fa-square-github fa-sm"></i>
-                        GitHub</a
-                    >
-                    <a href="../projects.html"
-                        ><i class="fa-solid fa-list-check fa-sm"></i>
-                        Projects</a
-                    >
-                    <a
-                        href="https://github.com/SharafatKarim/quotes#kazirifatmorshed"
-                        ><i class="fa-solid fa-quote-left fa-sm"></i> Quotes</a
-                    >
-                    <a href="../personalInterest.html"
-                        ><i class="fa-solid fa-feather fa-sm"></i> Personal
-                        Interests</a
-                    >
-                </aside>
-
-                <main id="main_" class="animate__animated animate__fadeInUp">
-                    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-                        <img src="../images/projects/PlaylistCompanion/logo.webp" alt="PlaylistCompanion Logo" style="height: 100px; width: auto; border-radius: 15px; max-width: 100%;">
-                        <h1>PlaylistCompanion</h1>
-                    </div>
-
-                    <div class="project-overview">
-                        <img src="../images/projects/PlaylistCompanion/PlaylistCompanion-Banner.png" alt="PlaylistCompanion Banner" style="width: 100%; max-width: 100%; height: auto; border-radius: 15px; margin-top: 20px; border: 1px solid #ccc; box-sizing: border-box;">
-                        <p style="margin-top: 20px; line-height: 1.6;">
-                            <strong>PlaylistCompanion</strong> is a cross-platform desktop application designed to streamline your video learning experience. Built with <strong>Qt6</strong>, it offers a robust set of tools for managing video playlists, tracking learning progress, and taking notes, all within a clean and intuitive interface.
-                        </p>
-                        <div class="repo-link" style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 15px; align-items: center;">
-                            <a href="https://github.com/KaziRifatMorshed/Playlist-Companion" target="_blank" style="text-decoration: none; color: #333; font-weight: bold; font-size: 1.2em; margin-right: 10px;">
-                                <i class="fa-brands fa-github"></i> View on GitHub
-                            </a>
-                            
-                            <div class="downloads" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
-                                <span style="font-weight: bold; font-size: 1.5em; color: #333; padding-bottom: 2px;">
-                                    <i class="fa-solid fa-download"></i> Download:
-                                </span>
-                                <a href="#" class="download-btn" title="Download for Windows" style="background-color: rgba(255, 255, 255, 0.2); border: 1px solid black; padding: 5px 15px; border-radius: 10px; color: black; font-weight: bold; text-decoration: none;">
-                                    <i class="fa-brands fa-windows"></i> Windows
-                                </a>
-                                <a href="#" class="download-btn" title="Download for Linux" style="background-color: rgba(255, 255, 255, 0.2); border: 1px solid black; padding: 5px 15px; border-radius: 10px; color: black; font-weight: bold; text-decoration: none;">
-                                    <i class="fa-brands fa-linux"></i> Linux
-                                </a>
-                                <a href="#" class="download-btn" title="Download for macOS" style="background-color: rgba(255, 255, 255, 0.2); border: 1px solid black; padding: 5px 15px; border-radius: 10px; color: black; font-weight: bold; text-decoration: none;">
-                                    <i class="fa-brands fa-apple"></i> macOS
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="features">
-                        <h2>Key Features</h2>
-
-                        <div class="feature-item">
-                            <h3><i class="fa-solid fa-list-ul"></i> Playlist Management</h3>
-                            <ul>
-                                <li><strong>Effortless Control:</strong> Create, edit, and remove playlists with ease.</li>
-                                <li><strong>Auto-Import:</strong> Simply add a folder, and the app automatically scans and imports all video files.</li>
-                                <li><strong>Smart Sync:</strong> Keep your playlists up-to-date by syncing with source folders to include new additions.</li>
-                            </ul>
-                        </div>
-
-                        <div class="feature-item">
-                            <h3><i class="fa-solid fa-bars-progress"></i> Progress Tracking</h3>
-                            <ul>
-                                <li><strong>Watch Status:</strong> Mark videos as watched or unwatched to keep track of your learning journey.</li>
-                                <li><strong>Quick Navigation:</strong> Seamlessly jump between videos with built-in "Next" and "Previous" controls.</li>
-                                <li><strong>Visual Cues:</strong> Clear highlighting in the video table shows your current progress at a glance.</li>
-                            </ul>
-                        </div>
-
-                        <div class="feature-item">
-                            <h3><i class="fa-solid fa-chart-line"></i> Detailed Analytics</h3>
-                            <ul>
-                                <li><strong>Progress Bars:</strong> Real-time visual representation of completion for each playlist.</li>
-                                <li><strong>Time Statistics:</strong> Automatically calculates total watched time and remaining time in hours.</li>
-                                <li><strong>Completion Stats:</strong> View the exact count of videos watched versus the total count.</li>
-                            </ul>
-                        </div>
-
-                        <div class="feature-item">
-                            <h3><i class="fa-solid fa-note-sticky"></i> Integrated Note-Taking</h3>
-                            <ul>
-                                <li><strong>Persistent Notes:</strong> Write and save detailed notes for *every* video in your playlist.</li>
-                                <li><strong>Auto-Save:</strong> Your notes are automatically saved and loaded as you navigate through your videos.</li>
-                            </ul>
-                        </div>
-
-                        <div class="feature-item">
-                            <h3><i class="fa-solid fa-film"></i> Media Integration</h3>
-                            <ul>
-                                <li><strong>External Player Support:</strong> Launch your videos in your favorite external media player.</li>
-                                <li><strong>Configurable Preferences:</strong> Set your preferred default media player in the settings.</li>
-                                <li><strong>Automatic Thumbnails:</strong> Thumbnails are generated automatically to help you visually identify your videos.</li>
-                            </ul>
-                        </div>
-
-                        <div class="feature-item">
-                            <h3><i class="fa-solid fa-database"></i> Data Reliability & Portability</h3>
-                            <ul>
-                                <li><strong>SQLite Backend:</strong> All your data is safely stored in a local SQLite database.</li>
-                                <li><strong>Backup & Restore:</strong> Built-in tools to create database backups and restore them whenever needed.</li>
-                                <li><strong>Cross-Platform:</strong> Native support for Windows, macOS, and Linux thanks to the Qt6 framework.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </main>
+                <a href="#" class="download-btn" title="Download for Linux" style="background-color: rgba(255, 255, 255, 0.2); border: 1px solid black; padding: 5px 15px; border-radius: 10px; color: black; font-weight: bold; text-decoration: none;">
+                    <i class="fa-brands fa-linux"></i> Linux
+                </a>
+                <a href="#" class="download-btn" title="Download for macOS" style="background-color: rgba(255, 255, 255, 0.2); border: 1px solid black; padding: 5px 15px; border-radius: 10px; color: black; font-weight: bold; text-decoration: none;">
+                    <i class="fa-brands fa-apple"></i> macOS
+                </a>
             </div>
-            <!-- END OF <div id="content-body"> having SHORTCUTS and MAIN -->
-            <!-- . -->
-            <footer class="animate__animated animate__fadeIn">
-                <p>
-                    Self developed website. Hosted in GitHub Pages. <br />
-                    ©March 2026 <br />Sonadanga, Khulna-9100, Bangladesh.
-                </p>
-            </footer>
+        </div>
+    </div>
+
+    <div class="features">
+        <h2>Key Features</h2>
+
+        <div class="feature-item">
+            <h3><i class="fa-solid fa-list-ul"></i> Playlist Management</h3>
+            <ul>
+                <li><strong>Effortless Control:</strong> Create, edit, and remove playlists with ease.</li>
+                <li><strong>Auto-Import:</strong> Simply add a folder, and the app automatically scans and imports all video files.</li>
+                <li><strong>Smart Sync:</strong> Keep your playlists up-to-date by syncing with source folders to include new additions.</li>
+            </ul>
         </div>
 
-        <script>
-            function showAsideBar() {
-                var _aside_bar_ = document.getElementById("aside_bar");
-                if (_aside_bar_.style.visibility === "hidden") {
-                    _aside_bar_.style.visibility = "visible";
-                } else {
-                    _aside_bar_.style.visibility = "hidden";
-                }
-            }
-        </script>
-        <script>
-            function showBG() {
-                var _bg_ = document.getElementById("main_");
-                if (_bg_.style.visibility === "visible") {
-                    _bg_.style.visibility = "hidden";
-                } else {
-                    _bg_.style.visibility = "visible";
-                }
-            }
-        </script>
+        <div class="feature-item">
+            <h3><i class="fa-solid fa-bars-progress"></i> Progress Tracking</h3>
+            <ul>
+                <li><strong>Watch Status:</strong> Mark videos as watched or unwatched to keep track of your learning journey.</li>
+                <li><strong>Quick Navigation:</strong> Seamlessly jump between videos with built-in "Next" and "Previous" controls.</li>
+                <li><strong>Visual Cues:</strong> Clear highlighting in the video table shows your current progress at a glance.</li>
+            </ul>
+        </div>
 
-        <script
-            type="text/javascript"
-            color="2,0,255"
-            pointColor="2,0,255"
-            opacity="0.9"
-            zIndex="-1"
-            count="200"
-            src="../canvas-nest.js"
-        ></script>
+        <div class="feature-item">
+            <h3><i class="fa-solid fa-chart-line"></i> Detailed Analytics</h3>
+            <ul>
+                <li><strong>Progress Bars:</strong> Real-time visual representation of completion for each playlist.</li>
+                <li><strong>Time Statistics:</strong> Automatically calculates total watched time and remaining time in hours.</li>
+                <li><strong>Completion Stats:</strong> View the exact count of videos watched versus the total count.</li>
+            </ul>
+        </div>
 
-        <script type="text/javascript" src="../canvas-nest.umd.js"></script>
-    </body>
-</html>
+        <div class="feature-item">
+            <h3><i class="fa-solid fa-note-sticky"></i> Integrated Note-Taking</h3>
+            <ul>
+                <li><strong>Persistent Notes:</strong> Write and save detailed notes for *every* video in your playlist.</li>
+                <li><strong>Auto-Save:</strong> Your notes are automatically saved and loaded as you navigate through your videos.</li>
+            </ul>
+        </div>
+
+        <div class="feature-item">
+            <h3><i class="fa-solid fa-film"></i> Media Integration</h3>
+            <ul>
+                <li><strong>External Player Support:</strong> Launch your videos in your favorite external media player.</li>
+                <li><strong>Configurable Preferences:</strong> Set your preferred default media player in the settings.</li>
+                <li><strong>Automatic Thumbnails:</strong> Thumbnails are generated automatically to help you visually identify your videos.</li>
+            </ul>
+        </div>
+
+        <div class="feature-item">
+            <h3><i class="fa-solid fa-database"></i> Data Reliability & Portability</h3>
+            <ul>
+                <li><strong>SQLite Backend:</strong> All your data is safely stored in a local SQLite database.</li>
+                <li><strong>Backup & Restore:</strong> Built-in tools to create database backups and restore them whenever needed.</li>
+                <li><strong>Cross-Platform:</strong> Native support for Windows, macOS, and Linux thanks to the Qt6 framework.</li>
+            </ul>
+        </div>
+    </div>
+</main>

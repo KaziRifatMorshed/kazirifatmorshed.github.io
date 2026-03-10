@@ -1,0 +1,32 @@
+<script>
+    function showAsideBar() {
+        var _aside_bar_ = document.getElementById("aside_bar");
+        if (_aside_bar_.style.visibility === "hidden") {
+            _aside_bar_.style.visibility = "visible";
+        } else {
+            _aside_bar_.style.visibility = "hidden";
+        }
+    }
+</script>
+<script>
+    function showBG() {
+        var _bg_ = document.getElementById("main_");
+        if (_bg_.style.visibility === "visible") {
+            _bg_.style.visibility = "hidden";
+        } else {
+            _bg_.style.visibility = "visible";
+        }
+    }
+</script>
+
+<script
+    type="text/javascript"
+    color="2,0,255"
+    pointColor="2,0,255"
+    opacity="0.9"
+    zIndex="-1"
+    count="200"
+    src="{{ site.baseurl }}/canvas-nest.js"
+></script>
+
+<script type="text/javascript" src="{{ site.baseurl }}/canvas-nest.umd.js"></script>

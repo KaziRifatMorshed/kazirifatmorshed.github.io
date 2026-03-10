@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% include head.html %}
+        <title>{{ page.title }}</title>
+    </head>
+    <body>
+        <div id="full_body">
+            <div id="telegram_button">
+                <a href="https://www.t.me/FiXiReULV">
+                    <img src="{{ site.baseurl }}/icons/telegram.svg" alt="Contact me in telegram (Most Preferable)" id="telegram_button-icon" />
+                </a>
+            </div>
+            <button type="button" onclick="showBG()" id="ShowBG">
+                <i class="fa-regular fa-flag"></i>
+            </button>
+
+            {% include header.html %}
+
+            <div id="content-body">
+                {% include aside_bar.html %}
+                {{ content }}
+            </div>
+
+            {% include footer.html %}
+        </div>
+
+        {% include scripts.html %}
+    </body>
+</html>
