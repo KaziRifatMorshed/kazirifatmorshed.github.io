@@ -1,0 +1,12 @@
+title: Kazi Rifat Morshed
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://kazirifatmorshed.github.io" # the base hostname & protocol for your site
+markdown: kramdown
+theme: minima
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - yarn.lock
+  - README.md
+  - LICENSE

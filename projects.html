@@ -1,323 +1,158 @@
-<!doctype html>
-<html lang="en">
-    <!-- https://kazirifatmorshed.github.io/index.html -->
+---
+layout: default
+title: "Projects : Kazi Rifat Morshed"
+---
 
-    <head>
-        <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Projects : Kazi Rifat Morshed</title>
-        <link
-            rel="shortcut icon"
-            href="./icons/3b1r_micro.jpg"
-            type="image/jpg"
-        />
-        <link rel="stylesheet" href="style.css" />
-        <link
-            href="https://fonts.cdnfonts.com/css/calibri-light"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        />
-        <script
-            src="https://kit.fontawesome.com/0da6f7f687.js"
-            crossorigin="anonymous"
-        ></script>
-        <style>
-            #projects-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 20px;
-                padding: 10px;
-            }
-            .project-card {
-                background-color: rgba(255, 165, 165, 0.336);
-                border: 1px solid black;
-                border-radius: 15px;
-                overflow: hidden;
-                transition: transform 0.3s ease;
-                display: flex;
-                flex-direction: column;
-                height: 100%;
-            }
-            .project-card:hover {
-                transform: scale(1.02);
-                background-color: rgba(185, 118, 118, 0.336);
-            }
-            .project-card img {
-                width: 100%;
-                height: 200px;
-                object-fit: cover;
-                border-bottom: 1px solid black;
-            }
-            .project-card-content {
-                padding: 15px;
-                flex-grow: 1;
-                display: flex;
-                flex-direction: column;
-            }
-            .project-card-content h3 {
-                margin-top: 0;
-                margin-bottom: 10px;
-            }
-            .project-card-content p {
-                font-size: 0.95em;
-                line-height: 1.4;
-                flex-grow: 1;
-            }
-            .project-links {
-                margin-top: 15px;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-            .project-links a {
-                font-size: 1.1em;
-                color: black;
-                transition: color 0.2s;
-            }
-            .project-links a:hover {
-                color: #e24329; /* GitLab/GitHub orange/red */
-            }
-        </style>
-    </head>
+<style>
+    #projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 10px;
+    }
+    .project-card {
+        background-color: rgba(255, 165, 165, 0.336);
+        border: 1px solid black;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .project-card:hover {
+        transform: scale(1.02);
+        background-color: rgba(185, 118, 118, 0.336);
+    }
+    .project-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 1px solid black;
+    }
+    .project-card-content {
+        padding: 15px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .project-card-content h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .project-card-content p {
+        font-size: 0.95em;
+        line-height: 1.4;
+        flex-grow: 1;
+    }
+    .project-links {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .project-links a {
+        font-size: 1.1em;
+        color: black;
+        transition: color 0.2s;
+    }
+    .project-links a:hover {
+        color: #e24329; /* GitLab/GitHub orange/red */
+    }
+</style>
 
-    <body>
-        <div id="full_body">
-            <div id="telegram_button">
-                <a href="https://www.t.me/FiXiReULV"
-                    ><img
-                        src="./icons/telegram.svg"
-                        alt="Contact me in telegram (Most Preferable)"
-                        id="telegram_button-icon"
-                /></a>
+<main id="main_" class="animate__animated animate__fadeInUp">
+    <h1>Projects Showcase</h1>
+    <p>A collection of some of my software development projects, tools, and configurations.</p>
+
+    <div id="projects-grid">
+        <!-- PlaylistCompanion -->
+        <div class="project-card">
+            <img src="{{ site.baseurl }}/images/projects/PlaylistCompanion/PlaylistCompanion-Banner.png" alt="PlaylistCompanion Banner">
+            <div class="project-card-content">
+                <h3>PlaylistCompanion</h3>
+                <p>A cross-platform desktop application designed to streamline video learning with playlist management, progress tracking, and integrated note-taking. Built with Qt6.</p>
+                <div class="project-links">
+                    <a href="{{ site.baseurl }}/projects/PlaylistCompanion.html"><i class="fa-solid fa-circle-info"></i> Details</a>
+                    <a href="https://github.com/KaziRifatMorshed/Playlist-Companion" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                </div>
             </div>
-            <button type="button" onclick="showBG()" id="ShowBG">
-                <i class="fa-regular fa-flag"></i>
-            </button>
-            <!-- HEADER -->
-            <header class="animate__animated animate__fadeInDown">
-                <a
-                    href="https://kazirifatmorshed.github.io/"
-                    id="link-home"
-                    alt="Homepage"
-                >
-                    <h1>
-                        Kazi Rifat Morshed
-                        <sup
-                            ><i
-                                class="fa-solid fa-arrow-up-right-from-square fa-2xs"
-                            ></i
-                        ></sup>
-                    </h1>
-                    <p>
-                        Undergraduate Student (B.Sc. Engg.) of Computer Science
-                        and Engineering (CSE)
-                    </p>
-                </a>
-                <button
-                    type="button"
-                    id="ShortcutsNavigationBar"
-                    onclick="showAsideBar()"
-                >
-                    <i
-                        class="fa-solid fa-chevron-down fa-sm"
-                        style="color: #000000"
-                    ></i>
-                    Navigation Bar (Shortcuts)
-                </button>
-            </header>
-            <!------------------------------------------------------>
-            <div id="content-body">
-                <!-- Side Bar -->
-                <aside id="aside_bar">
-                    <h1 id="h1Shortcuts">🌱Shortcuts</h1>
-                    <a
-                        href="https://drive.google.com/drive/folders/11U0uNNmST4ZXQe2FrJwbB8MzChq5wC5n?usp=sharing"
-                        ><i class="fa-regular fa-file fa-sm"></i> CV</a
-                    >
-                    <a href="./Contact.html"
-                        ><i class="fa-regular fa-address-book fa-sm"></i>
-                        Contact and Social</a
-                    >
-                    <a href="https://blogofkazirifatjr.blogspot.com/"
-                        ><i class="fa-brands fa-blogger fa-sm"></i> Blog</a
-                    >
-                    <a href="./Album.html"
-                        ><i class="fa-regular fa-images fa-sm"></i> Album</a
-                    >
-                    <a href="./MyCaptures.html"
-                        ><i class="fa-solid fa-camera fa-sm"></i> My Captures</a
-                    >
-                    <a href="./resources.html"
-                        ><i class="fa-regular fa-folder-open fa-sm"></i>
-                        Resources</a
-                    >
-                    <a href="./Contributions.html"
-                        ><i class="fa-solid fa-people-carry-box fa-sm"></i>
-                        Contributions</a
-                    >
-                    <!-- <li><a href="">LinkedIn</a></li> -->
-                    <a href="./research.html"
-                        ><i class="fa-solid fa-book-open-reader fa-sm"></i>
-                        Research</a
-                    >
-                    <a href="https://github.com/KaziRifatMorshed"
-                        ><i class="fa-brands fa-square-github fa-sm"></i>
-                        Github</a
-                    >
-                    <a href="./projects.html"
-                        ><i class="fa-solid fa-list-check fa-sm"></i>
-                        Projects</a
-                    >
-                    <a
-                        href="https://github.com/SharafatKarim/quotes#kazirifatmorshed"
-                        ><i class="fa-solid fa-quote-left fa-sm"></i> Quotes</a
-                    >
-                    <a href="./personalInterest.html"
-                        ><i class="fa-solid fa-feather fa-sm"></i> Personal
-                        Interests</a
-                    >
-                </aside>
-
-                <main id="main_" class="animate__animated animate__fadeInUp">
-                    <h1>Projects Showcase</h1>
-                    <p>A collection of some of my software development projects, tools, and configurations.</p>
-
-                    <div id="projects-grid">
-                        <!-- PlaylistCompanion -->
-                        <div class="project-card">
-                            <img src="./images/projects/PlaylistCompanion/PlaylistCompanion-Banner.png" alt="PlaylistCompanion Banner">
-                            <div class="project-card-content">
-                                <h3>PlaylistCompanion</h3>
-                                <p>A cross-platform desktop application designed to streamline video learning with playlist management, progress tracking, and integrated note-taking. Built with Qt6.</p>
-                                <div class="project-links">
-                                    <a href="./projects/PlaylistCompanion.html"><i class="fa-solid fa-circle-info"></i> Details</a>
-                                    <a href="https://github.com/KaziRifatMorshed/Playlist-Companion" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Mass Certificate Generator -->
-                        <div class="project-card">
-                            <img src="./images/projects/mcg_gui.png" alt="MCG Logo">
-                            <div class="project-card-content">
-                                <h3>Mass Certificate Generator (MCG)</h3>
-                                <p>A GUI program to generate PDF certificates from CSV/Excel data. Features real-time live preview, coordinate calibration, and custom font management.</p>
-                                <div class="project-links">
-                                    <a href="./projects/MassCertificateGenerator.html"><i class="fa-solid fa-circle-info"></i> Details</a>
-                                    <a href="https://gitlab.com/KaziRifatMorshed/mass-certificate-generator" target="_blank"><i class="fa-brands fa-gitlab"></i> GitLab</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- SportoStream -->
-                        <div class="project-card">
-                            <img src="./images/projects/SportoStream/sportoStream-main.webp" alt="SportoStream">
-                            <div class="project-card-content">
-                                <h3>SportoStream</h3>
-                                <p>A custom-built sports streaming and scoring system software for Team CSE KU to live-stream cricket matches with a dedicated scoring overlay.</p>
-                                <div class="project-links">
-                                    <a href="./projects/SportoStream.html"><i class="fa-solid fa-circle-info"></i> Details</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- tbtKU Suhrrid -->
-                        <div class="project-card">
-                            <img src="./images/projects/tbtku-Suhrrid.webp" alt="tbtKU Suhrrid">
-                            <div class="project-card-content">
-                                <h3>tbtKU Suhrrid (সুহৃদ)</h3>
-                                <p>A Student Service Platform for Khulna University students to find accommodations and buy/sell used items among peers.</p>
-                                <div class="project-links">
-                                    <a href="./projects/tbtku-suhrrid.html"><i class="fa-solid fa-circle-info"></i> Details</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Quote of my day -->
-                        <div class="project-card">
-                            <img src="./images/projects/quote-of-my-day.webp" alt="Quote of my day">
-                            <div class="project-card-content">
-                                <h3>Quote of my day...</h3>
-                                <p>A GUI desktop app written in C that reminds you of a daily quote from a pre-determined collection.</p>
-                                <div class="project-links">
-                                    <a href="./projects/quote-of-my-day.html"><i class="fa-solid fa-circle-info"></i> Details</a>
-                                    <a href="https://github.com/KaziRifatMorshed/Quote-of-my-day" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- VS Code Profile -->
-                        <div class="project-card">
-                            <img src="./images/projects/vs-code.webp" alt="VS Code Config">
-                            <div class="project-card-content">
-                                <h3>Beginner Friendly VS Code Config</h3>
-                                <p>An easy-to-import VS Code profile repository designed specifically for programming beginners.</p>
-                                <div class="project-links">
-                                    <a href="./projects/beginner-friendly-vscode-config.html"><i class="fa-solid fa-circle-info"></i> Details</a>
-                                    <a href="https://github.com/KaziRifatMorshed/beginner-friendly-VS-Code-profile" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Student Person Database -->
-                        <div class="project-card">
-                            <img src="./images/projects/java-gui-student-database.webp" alt="Student Database">
-                            <div class="project-card-content">
-                                <h3>JAVA GUI: Student-Person-Database</h3>
-                                <p>An OOP sessional project using Java Swing with serialization/deserialization for managing student records.</p>
-                                <div class="project-links">
-                                    <a href="./projects/java-gui-student-database.html"><i class="fa-solid fa-circle-info"></i> Details</a>
-                                    <a href="https://github.com/KaziRifatMorshed/student-database-oop-java-swing" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-            </div>
-            <!-- END OF <div id="content-body"> having SHORTCUTS and MAIN -->
-            <!-- . -->
-            <footer class="animate__animated animate__fadeIn">
-                <p>
-                    Self developed website. Hosted in Github Pages. <br />
-                    ©March 2026 <br />Sonadanga, Khulna-9100, Bangladesh.
-                </p>
-            </footer>
         </div>
 
-        <script>
-            function showAsideBar() {
-                var _aside_bar_ = document.getElementById("aside_bar");
-                if (_aside_bar_.style.visibility === "hidden") {
-                    _aside_bar_.style.visibility = "visible";
-                } else {
-                    _aside_bar_.style.visibility = "hidden";
-                }
-            }
-        </script>
-        <script>
-            function showBG() {
-                var _bg_ = document.getElementById("main_");
-                if (_bg_.style.visibility === "visible") {
-                    _bg_.style.visibility = "hidden";
-                } else {
-                    _bg_.style.visibility = "visible";
-                }
-            }
-        </script>
+        <!-- Mass Certificate Generator -->
+        <div class="project-card">
+            <img src="{{ site.baseurl }}/images/projects/mcg_gui.png" alt="MCG Logo">
+            <div class="project-card-content">
+                <h3>Mass Certificate Generator (MCG)</h3>
+                <p>A GUI program to generate PDF certificates from CSV/Excel data. Features real-time live preview, coordinate calibration, and custom font management.</p>
+                <div class="project-links">
+                    <a href="{{ site.baseurl }}/projects/MassCertificateGenerator.html"><i class="fa-solid fa-circle-info"></i> Details</a>
+                    <a href="https://gitlab.com/KaziRifatMorshed/mass-certificate-generator" target="_blank"><i class="fa-brands fa-gitlab"></i> GitLab</a>
+                </div>
+            </div>
+        </div>
 
-        <script
-            type="text/javascript"
-            color="2,0,255"
-            pointColor="2,0,255"
-            opacity="0.9"
-            zIndex="-1"
-            count="200"
-            src="./canvas-nest.js"
-        ></script>
+        <!-- SportoStream -->
+        <div class="project-card">
+            <img src="{{ site.baseurl }}/images/projects/SportoStream/sportoStream-main.webp" alt="SportoStream">
+            <div class="project-card-content">
+                <h3>SportoStream</h3>
+                <p>A custom-built sports streaming and scoring system software for Team CSE KU to live-stream cricket matches with a dedicated scoring overlay.</p>
+                <div class="project-links">
+                    <a href="{{ site.baseurl }}/projects/SportoStream.html"><i class="fa-solid fa-circle-info"></i> Details</a>
+                </div>
+            </div>
+        </div>
 
-        <script type="text/javascript" src="./canvas-nest.umd.js"></script>
-    </body>
-</html>
+        <!-- tbtKU Suhrrid -->
+        <div class="project-card">
+            <img src="{{ site.baseurl }}/images/projects/tbtku-Suhrrid.webp" alt="tbtKU Suhrrid">
+            <div class="project-card-content">
+                <h3>tbtKU Suhrrid (সুহৃদ)</h3>
+                <p>A Student Service Platform for Khulna University students to find accommodations and buy/sell used items among peers.</p>
+                <div class="project-links">
+                    <a href="{{ site.baseurl }}/projects/tbtku-suhrrid.html"><i class="fa-solid fa-circle-info"></i> Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quote of my day -->
+        <div class="project-card">
+            <img src="{{ site.baseurl }}/images/projects/quote-of-my-day.webp" alt="Quote of my day">
+            <div class="project-card-content">
+                <h3>Quote of my day...</h3>
+                <p>A GUI desktop app written in C that reminds you of a daily quote from a pre-determined collection.</p>
+                <div class="project-links">
+                    <a href="{{ site.baseurl }}/projects/quote-of-my-day.html"><i class="fa-solid fa-circle-info"></i> Details</a>
+                    <a href="https://github.com/KaziRifatMorshed/Quote-of-my-day" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- VS Code Profile -->
+        <div class="project-card">
+            <img src="{{ site.baseurl }}/images/projects/vs-code.webp" alt="VS Code Config">
+            <div class="project-card-content">
+                <h3>Beginner Friendly VS Code Config</h3>
+                <p>An easy-to-import VS Code profile repository designed specifically for programming beginners.</p>
+                <div class="project-links">
+                    <a href="{{ site.baseurl }}/projects/beginner-friendly-vscode-config.html"><i class="fa-solid fa-circle-info"></i> Details</a>
+                    <a href="https://github.com/KaziRifatMorshed/beginner-friendly-VS-Code-profile" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Person Database -->
+        <div class="project-card">
+            <img src="{{ site.baseurl }}/images/projects/java-gui-student-database.webp" alt="Student Database">
+            <div class="project-card-content">
+                <h3>JAVA GUI: Student-Person-Database</h3>
+                <p>An OOP sessional project using Java Swing with serialization/deserialization for managing student records.</p>
+                <div class="project-links">
+                    <a href="{{ site.baseurl }}/projects/java-gui-student-database.html"><i class="fa-solid fa-circle-info"></i> Details</a>
+                    <a href="https://github.com/KaziRifatMorshed/student-database-oop-java-swing" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
