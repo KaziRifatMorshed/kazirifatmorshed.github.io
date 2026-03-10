@@ -4,92 +4,173 @@ title: "Project : PlaylistCompanion"
 ---
 
 <main id="main_" class="animate__animated animate__fadeInUp">
-    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-        <img src="{{ site.baseurl }}/images/projects/PlaylistCompanion/logo.webp" alt="PlaylistCompanion Logo" style="height: 100px; width: auto; border-radius: 15px; max-width: 100%;">
+    <div align="center">
+        <img src="{{ site.baseurl }}/images/projects/PlaylistCompanion/PlaylistCompanion-Banner.png" alt="Playlist Companion Banner" style="width: 100%; max-width: 800px; height: auto; border-radius: 15px; border: 1px solid #ccc;">
+    </div>
+
+    <div align="center">
         <h1>PlaylistCompanion</h1>
+        <p><strong>A desktop app to track your progress through local video playlists and tutorials</strong></p>
+        
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 15px; margin-bottom: 25px;">
+            <a href="https://github.com/noobcod3r-rtx/Playlist-Companion" target="_blank"><img src="https://img.shields.io/badge/build-passing-brightgreen" alt="Build Status"></a>
+            <a href="https://github.com/noobcod3r-rtx/Playlist-Companion/blob/main/LICENSE" target="_blank"><img src="https://img.shields.io/badge/license-Apache--2.0-blue" alt="License"></a>
+            <a href="https://github.com/noobcod3r-rtx/Playlist-Companion" target="_blank"><img src="https://img.shields.io/badge/version-1.1.8-orange" alt="Version"></a>
+            <a href="https://kazirifatmorshed.github.io/projects/PlaylistCompanion.html" target="_blank"><img src="https://img.shields.io/badge/website-visit-brightgreen" alt="Project Website"></a>
+        </div>
     </div>
 
     <div class="project-overview">
-        <img src="{{ site.baseurl }}/images/projects/PlaylistCompanion/PlaylistCompanion-Banner.png" alt="PlaylistCompanion Banner" style="width: 100%; max-width: 100%; height: auto; border-radius: 15px; margin-top: 20px; border: 1px solid #ccc; box-sizing: border-box;">
-        <p style="margin-top: 20px; line-height: 1.6;">
-            <strong>PlaylistCompanion</strong> is a cross-platform desktop application designed to streamline your video learning experience. Built with <strong>Qt6</strong>, it offers a robust set of tools for managing video playlists, tracking learning progress, and taking notes, all within a clean and intuitive interface.
+        <p>
+            Playlist Companion is a GUI desktop application built with <strong>C++</strong> and the <strong>Qt6</strong> framework that helps you track your progress through local video playlists and tutorials. It allows you to easily manage your video files, keep track of watched videos, and take notes to better organize your learning.
         </p>
-        <div class="repo-link" style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 15px; align-items: center;">
-            <a href="https://github.com/KaziRifatMorshed/Playlist-Companion" target="_blank" style="text-decoration: none; color: #333; font-weight: bold; font-size: 1.2em; margin-right: 10px;">
-                <i class="fa-brands fa-github"></i> View on GitHub
-            </a>
-            
-            <div class="downloads" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
-                <span style="font-weight: bold; font-size: 1.5em; color: #333; padding-bottom: 2px;">
-                    <i class="fa-solid fa-download"></i> Download:
-                </span>
-                <a href="#" class="download-btn" title="Download for Windows" style="background-color: rgba(255, 255, 255, 0.2); border: 1px solid black; padding: 5px 15px; border-radius: 10px; color: black; font-weight: bold; text-decoration: none;">
-                    <i class="fa-brands fa-windows"></i> Windows
-                </a>
-                <a href="#" class="download-btn" title="Download for Linux" style="background-color: rgba(255, 255, 255, 0.2); border: 1px solid black; padding: 5px 15px; border-radius: 10px; color: black; font-weight: bold; text-decoration: none;">
-                    <i class="fa-brands fa-linux"></i> Linux
-                </a>
-                <a href="#" class="download-btn" title="Download for macOS" style="background-color: rgba(255, 255, 255, 0.2); border: 1px solid black; padding: 5px 15px; border-radius: 10px; color: black; font-weight: bold; text-decoration: none;">
-                    <i class="fa-brands fa-apple"></i> macOS
-                </a>
-            </div>
-        </div>
     </div>
 
     <div class="features">
-        <h2>Key Features</h2>
+        <h2>✨ Features</h2>
 
-        <div class="feature-item">
+        <div class="feature-item" style="margin-bottom: 20px;">
             <h3><i class="fa-solid fa-list-ul"></i> Playlist Management</h3>
             <ul>
-                <li><strong>Effortless Control:</strong> Create, edit, and remove playlists with ease.</li>
-                <li><strong>Auto-Import:</strong> Simply add a folder, and the app automatically scans and imports all video files.</li>
-                <li><strong>Smart Sync:</strong> Keep your playlists up-to-date by syncing with source folders to include new additions.</li>
+                <li><strong>Create, edit, and remove</strong> playlists effortlessly.</li>
+                <li><strong>Auto-Import:</strong> Add a folder, and the app automatically scans and imports all video files.</li>
+                <li><strong>Sync:</strong> Update existing playlists to include new videos added to the source folder.</li>
             </ul>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item" style="margin-bottom: 20px;">
             <h3><i class="fa-solid fa-bars-progress"></i> Progress Tracking</h3>
             <ul>
                 <li><strong>Watch Status:</strong> Mark videos as watched or unwatched to keep track of your learning journey.</li>
-                <li><strong>Quick Navigation:</strong> Seamlessly jump between videos with built-in "Next" and "Previous" controls.</li>
-                <li><strong>Visual Cues:</strong> Clear highlighting in the video table shows your current progress at a glance.</li>
+                <li><strong>Navigation:</strong> Quickly jump between videos with "Next" and "Previous" controls.</li>
+                <li><strong>Visual Indicators:</strong> Highlighting in the video table clearly shows your current progress.</li>
             </ul>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item" style="margin-bottom: 20px;">
             <h3><i class="fa-solid fa-chart-line"></i> Detailed Analytics</h3>
             <ul>
                 <li><strong>Progress Bars:</strong> Real-time visual representation of completion for each playlist.</li>
                 <li><strong>Time Statistics:</strong> Automatically calculates total watched time and remaining time in hours.</li>
-                <li><strong>Completion Stats:</strong> View the exact count of videos watched versus the total count.</li>
+                <li><strong>Completion Stats:</strong> View the number of videos watched versus the total count at a glance.</li>
             </ul>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item" style="margin-bottom: 20px;">
             <h3><i class="fa-solid fa-note-sticky"></i> Integrated Note-Taking</h3>
             <ul>
-                <li><strong>Persistent Notes:</strong> Write and save detailed notes for *every* video in your playlist.</li>
-                <li><strong>Auto-Save:</strong> Your notes are automatically saved and loaded as you navigate through your videos.</li>
+                <li><strong>Write and save</strong> persistent notes for <em>every</em> video in your playlist.</li>
+                <li><strong>Auto-Save:</strong> Notes are automatically saved and loaded as you navigate through your videos.</li>
             </ul>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item" style="margin-bottom: 20px;">
             <h3><i class="fa-solid fa-film"></i> Media Integration</h3>
             <ul>
-                <li><strong>External Player Support:</strong> Launch your videos in your favorite external media player.</li>
-                <li><strong>Configurable Preferences:</strong> Set your preferred default media player in the settings.</li>
-                <li><strong>Automatic Thumbnails:</strong> Thumbnails are generated automatically to help you visually identify your videos.</li>
+                <li><strong>External Player:</strong> Launch your videos in your favorite external media player.</li>
+                <li><strong>Configurable Settings:</strong> Choose and set your preferred default media player.</li>
+                <li><strong>Thumbnails:</strong> Automatic thumbnail generation to help you visually identify your videos.</li>
             </ul>
         </div>
 
-        <div class="feature-item">
-            <h3><i class="fa-solid fa-database"></i> Data Reliability & Portability</h3>
+        <div class="feature-item" style="margin-bottom: 20px;">
+            <h3><i class="fa-solid fa-database"></i> Data Reliability</h3>
             <ul>
                 <li><strong>SQLite Backend:</strong> All your data is safely stored in a local SQLite database.</li>
                 <li><strong>Backup & Restore:</strong> Built-in tools to create database backups and restore them whenever needed.</li>
                 <li><strong>Cross-Platform:</strong> Native support for Windows, macOS, and Linux thanks to the Qt6 framework.</li>
             </ul>
         </div>
+
+        <div class="feature-item" style="margin-bottom: 20px;">
+            <h3><i class="fa-solid fa-language"></i> Multi-language Support</h3>
+            <ul>
+                <li>Currently supports English.</li>
+            </ul>
+        </div>
     </div>
+
+<!--    <div class="getting-started">
+        <h2>🚀 Getting Started</h2>
+        <h3>Prerequisites</h3>
+        <ul>
+            <li>C++ Compiler (with C++23 support)</li>
+            <li>Qt6 (with <code>multimedia</code>, <code>sql</code>, and <code>widgets</code> modules)</li>
+            <li><code>qmake</code> (Qt Build Tool)</li>
+        </ul>
+
+        <h3>Installation</h3>
+        <p>To build the project from source:</p>
+        <ol>
+            <li><strong>Clone the repository:</strong>
+                <pre style="background: rgba(0,0,0,0.05); padding: 10px; border-radius: 10px; overflow-x: auto;"><code>git clone https://github.com/noobcod3r-rtx/Playlist-Companion.git
+cd Playlist-Companion</code></pre>
+            </li>
+            <li><strong>Navigate to the source directory:</strong>
+                <pre style="background: rgba(0,0,0,0.05); padding: 10px; border-radius: 10px; overflow-x: auto;"><code>cd src/PlaylistCompanion</code></pre>
+            </li>
+            <li><strong>Build the project:</strong>
+                <pre style="background: rgba(0,0,0,0.05); padding: 10px; border-radius: 10px; overflow-x: auto;"><code>mkdir build
+cd build
+qmake ..
+make</code></pre>
+                <p><em>Note: On Windows, use <code>nmake</code> or <code>jom</code> instead of <code>make</code>, or open the <code>.pro</code> file in Qt Creator.</em></p>
+            </li>
+        </ol>
+    </div>
+
+    <div class="usage">
+        <h2>🏃‍♀️ Usage</h2>
+        <p>After building the project, you can run the executable from the <code>build</code> directory:</p>
+        <pre style="background: rgba(0,0,0,0.05); padding: 10px; border-radius: 10px; overflow-x: auto;"><code>./PlaylistCompanion</code></pre>
+    </div>
+
+    <div class="contributing">
+        <h2>🤝 Contributing</h2>
+        <p>Contributions are welcome! Please feel free to submit a pull request or open an issue.</p>
+        <ol>
+            <li>Fork the Project</li>
+            <li>Create your Feature Branch (<code>git checkout -b feature/AmazingFeature</code>)</li>
+            <li>Commit your Changes (<code>git commit -m 'Add some AmazingFeature'</code>)</li>
+            <li>Push to the Branch (<code>git push origin feature/AmazingFeature</code>)</li>
+            <li>Open a Pull Request</li>
+        </ol>
+    </div>-->
+
+    <div class="acknowledgments">
+        <h2>💖 Acknowledgments</h2>
+        <ul>
+            <li><strong>Pritom Das (CSEKU250220):</strong> I am really grateful for your contribution and support as an active tester and for quickly finding issues.</li>
+        </ul>
+    </div>
+
+    <div class="license">
+        <h2>📜 License</h2>
+        <p>This project is licensed under the Apache License 2.0 - see the <a href="https://github.com/noobcod3r-rtx/Playlist-Companion/blob/main/LICENSE" target="_blank">LICENSE</a> file for details.</p>
+    </div>
+
+<!--    <div class="project-structure">
+        <h2>📂 Project Structure</h2>
+        <ul>
+            <li><code>src/PlaylistCompanion/</code>: Main source code, UI files, and project configuration (<code>.pro</code>).
+                <ul>
+                    <li><code>include/</code>: Header files.</li>
+                </ul>
+            </li>
+            <li><code>logo/</code>: Application logos and assets.</li>
+            <li><code>script/</code>: Installation and helper scripts.</li>
+            <li><code>tests/</code>: Unit tests for the application.</li>
+            <li><code>PlaylistCompanion.pro</code>: The qmake project file.</li>
+        </ul>
+    </div>-->
+
+<!--    <div class="author" style="margin-top: 50px; padding-top: 25px;">
+        <h2>Author</h2>
+        <ul>
+            <li><strong>Name</strong>: Kazi Rifat Morshed</li>
+            <li><strong>Affiliation</strong>: Computer Science and Engineering Discipline, <a href="https://www.ku.ac.bd" target="_blank">Khulna University</a></li>
+            <li><strong>Email</strong>: <a href="mailto:rifat230220@cseku.ac.bd">rifat230220@cseku.ac.bd</a></li>
+            <li><strong>Website</strong>: <a href="https://kazirifatmorshed.github.io" target="_blank">https://kazirifatmorshed.github.io</a></li>
+        </ul>
+    </div>-->
 </main>
