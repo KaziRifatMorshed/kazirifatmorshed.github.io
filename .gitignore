@@ -1,0 +1,19 @@
+# Jekyll temporary files
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Ruby/Gems
+.bundle/
+vendor/
+
+# Node.js / Javascript
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS specific
+.DS_Store
+Thumbs.db
