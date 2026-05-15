@@ -408,34 +408,23 @@ main {
     width: 100%;
 }
 
-.media-grid,
-.gallery-grid {
+.media-grid {
     display: flex;
     flex-direction: row;
     gap: 20px;
     margin: 20px 0;
 }
 
-.media-grid figure,
-.gallery-grid figure {
+.media-grid figure {
     flex: 1;
     margin: 0 !important;
 }
 
 .media-grid img, 
-.media-grid iframe,
-.gallery-grid img {
+.media-grid iframe {
     width: 100%;
     border-radius: 15px;
     display: block;
-}
-
-.media-grid figcaption,
-.gallery-grid figcaption {
-    text-align: center;
-    font-style: italic;
-    padding: 8px 0;
-    font-size: 0.95em;
 }
 
 .media-grid iframe {
@@ -444,8 +433,7 @@ main {
 }
 
 @media screen and (max-width: 1080px) {
-    .media-grid,
-    .gallery-grid {
+    .media-grid {
         flex-direction: column;
     }
 }
