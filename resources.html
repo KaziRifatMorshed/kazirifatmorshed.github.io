@@ -3,155 +3,99 @@ layout: default
 title: Resources
 ---
 
-<main id="main_" class="animate__animated animate__fadeInUp">
+<main id="main_" class="animate__animated animate__fadeInUp visible flex flex-col justify-center backdrop-blur-sm border border-black rounded-2xl p-4 min-[1081px]:w-[60%] min-[1081px]:relative min-[1081px]:left-[22%] max-[1080px]:w-full max-[1080px]:left-0 overflow-x-hidden box-border">
 
-    <!-- NOTES
-        PDF: <i class="fa-regular fa-file-pdf fa-sm"></i>
-        File: <i class="fa-regular fa-file-lines fa-sm"></i>
-        Download: <i class="fa-solid fa-download fa-bounce fa-sm"></i>
-        Presentation: <i class="fa-solid fa-person-chalkboard fa-sm"></i>
-        Print: <i class="fa-solid fa-print fa-sm"></i>
-        Floppy Disk: <i class="fa-regular fa-floppy-disk fa-sm"></i>
-        Bookmark: <i class="fa-regular fa-bookmark"></i>
-        Share: <i class="fa-solid fa-share-from-square fa-sm"></i>
-        Code: <i class="fa-solid fa-code fa-sm"></i>
-        Vector: <i class="fa-solid fa-bezier-curve fa-sm"></i>
-    -->
-
-    <h2>These resources are available for download</h2>
-    <p> This page contains my Presentations, notes, slides, pdfs, programs, videos, logos, Photos,
-        illustrations, arts etc. <br>
-        Resources are arranged from newest to oldest. <br>
+    <h2 class="text-2xl font-bold mb-2 border-b border-gray-400 pb-1">These resources are available for download</h2>
+    <p class="text-sm text-gray-800 leading-relaxed mb-3">
+        This page contains my Presentations, notes, slides, pdfs, programs, videos, logos, Photos, illustrations, arts etc. <br>
+        Resources are arranged from newest to oldest.
     </p>
-    NOTE: Some files may be incompatible with your system. Please follow this text: <br>
-    <ul>
-        <li>ODP - Open Document Presentation (Use Libre Office)</li>
-        <li>md - Markdown</li>
-        <li>svg - Adobe Illustrator or Inkscape</li>
-        <li>pdf presentation - <a href="https://github.com/Cimbali/pympress/releases">Pympress</a>, <a href="https://github.com/pdfpc/pdfpc">pdfpc</a></li>
-    </ul>
+    <div class="bg-amber-50/50 p-3 rounded-xl border border-amber-200 mb-4 text-xs">
+        <b class="text-amber-900 font-semibold">NOTE:</b> Some files may be incompatible with your system. Please follow this text:
+        <ul class="list-disc list-inside mt-1 space-y-0.5 text-gray-800">
+            <li>ODP - Open Document Presentation (Use Libre Office)</li>
+            <li>md - Markdown</li>
+            <li>svg - Adobe Illustrator or Inkscape</li>
+            <li>pdf presentation - <a href="https://github.com/Cimbali/pympress/releases" class="text-black underline font-medium">Pympress</a>, <a href="https://github.com/pdfpc/pdfpc" class="text-black underline font-medium">pdfpc</a></li>
+        </ul>
+    </div>
 
     <!----------- LIST STARTS HERE ------------>
 
-    <h3>July 2026</h3>
-    <ul>
-        <li><a
-                href="{{ site.baseurl }}/resources/sessions/Intro-to-Laravel.pdf"><i
-                    class="fa-regular fa-file-pdf fa-sm"></i> <b>Introduction to Laravel</b> - The PHP Framework for Web Artisans [KU ICT Cell Internship Presentation] (PDF)<i
-                    class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub>(Last updated: 2026-07-07)</sub></li>
-    </ul>
+    <div class="space-y-4 text-sm">
+        <div>
+            <h3 class="font-bold text-lg mb-1 border-b border-gray-300 pb-0.5">July 2026</h3>
+            <ul class="list-disc list-inside space-y-1">
+                <li><a href="{{ site.baseurl }}/resources/sessions/Intro-to-Laravel.pdf" class="text-black underline font-medium hover:text-orange-600 transition-colors"><i class="fa-regular fa-file-pdf fa-sm"></i> <b>Introduction to Laravel</b> - The PHP Framework for Web Artisans [KU ICT Cell Internship Presentation] (PDF) <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub class="text-xs text-gray-600">(Last updated: 2026-07-07)</sub></li>
+            </ul>
+        </div>
 
+        <div>
+            <h3 class="font-bold text-lg mb-1 border-b border-gray-300 pb-0.5">May 2026</h3>
+            <ul class="list-disc list-inside space-y-1">
+                <li><a href="{{ site.baseurl }}/resources/sessions/WelcomeJuniors.pdf" class="text-black underline font-medium hover:text-orange-600 transition-colors"><i class="fa-regular fa-file-pdf fa-sm"></i> <b>Welcome Juniors</b> - Let's share some thoughts... (PDF) <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub class="text-xs text-gray-600">(Last updated: 2026-06-04)</sub></li>
+                <li><a href="{{ site.baseurl }}/resources/presentations/LLL-paper-presentation-CSEKU230220.pdf" class="text-black underline font-medium hover:text-orange-600 transition-colors"><i class="fa-regular fa-file-pdf fa-sm"></i> Paper Presentation: <b>Light Loss-Less Data Compression, With GPU Implementation</b> (PDF) <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub class="text-xs text-gray-600">(Last updated: 2026-05-05)</sub></li>
+            </ul>
+        </div>
 
-    <h3>May 2026</h3>
-    <ul>
-        <li><a
-                href="{{ site.baseurl }}/resources/sessions/WelcomeJuniors.pdf"><i
-                    class="fa-regular fa-file-pdf fa-sm"></i> <b>Welcome Juniors</b> - Let's share some thoughts... (PDF)<i
-                    class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub>(Last updated: 2026-06-04)</sub></li>
-        <li><a
-                href="{{ site.baseurl }}/resources/presentations/LLL-paper-presentation-CSEKU230220.pdf"><i
-                    class="fa-regular fa-file-pdf fa-sm"></i> Paper Presentation: <b>Light Loss-Less Data Compression, With GPU Implementation</b> (PDF)<i
-                    class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub>(Last updated: 2026-05-05)</sub></li>
-    </ul>
+        <div>
+            <h3 class="font-bold text-lg mb-1 border-b border-gray-300 pb-0.5">March 2026</h3>
+            <ul class="list-disc list-inside space-y-1">
+                <li><a href="{{ site.baseurl }}/resources/sessions/Introduction_to_Git_and_GitHub.pdf" class="text-black underline font-medium hover:text-orange-600 transition-colors"><i class="fa-regular fa-file-pdf fa-sm"></i> <b>Introduction to Git & GitHub</b> (PDF) <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub class="text-xs text-gray-600">(Last updated: 2026-03-17)</sub></li>
+            </ul>
+        </div>
 
+        <div>
+            <h3 class="font-bold text-lg mb-1 border-b border-gray-300 pb-0.5">February 2026</h3>
+            <ul class="list-disc list-inside space-y-1">
+                <li><a href="{{ site.baseurl }}/resources/sessions/HZBRL.pdf" class="text-black underline font-medium hover:text-orange-600 transition-colors"><i class="fa-regular fa-file-pdf fa-sm"></i> CLUSTER Bootcamp: <b>HZBRL</b> - Fundamentals that won't regret you! (PDF) <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub class="text-xs text-gray-600">(Last updated: 2026-02-27)</sub></li>
+                <li><a href="{{ site.baseurl }}/resources/sessions/HZBRL_Assignment.docx" class="text-black underline font-medium hover:text-orange-600 transition-colors"> CLUSTER Bootcamp: <b>HZBRL</b> - Assignment (DOCX) <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub class="text-xs text-gray-600">(Last updated: 2026-02-27)</sub></li>
+            </ul>
+        </div>
 
-    <h3>March 2026</h3>
-    <ul>
-        <li><a
-                href="{{ site.baseurl }}/resources/sessions/Introduction_to_Git_and_GitHub.pdf"><i
-                    class="fa-regular fa-file-pdf fa-sm"></i> <b>Introduction to Git & GitHub</b> (PDF)<i
-                    class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub>(Last updated: 2026-03-17)</sub></li>
-    </ul>
+        <div>
+            <h3 class="font-bold text-lg mb-1 border-b border-gray-300 pb-0.5">3-1 Term Presentation</h3>
+            <ul class="list-disc list-inside space-y-1">
+                <li><a href="{{ site.baseurl }}/resources/presentations/SmartXm.pptx" class="text-black underline font-medium hover:text-orange-600 transition-colors"><b>Software Engineering</b> and Information Systems - Project Presentation: <i class="fa-solid fa-person-chalkboard fa-sm"></i> <b>SmartXm</b> - Lab Test Management System with Integrated Judge over Local Network (PPTX) <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub class="text-xs text-gray-600">(Last updated: 2026-01-30)</sub></li>
+            </ul>
+        </div>
 
+        <div>
+            <h3 class="font-bold text-lg mb-1 border-b border-gray-300 pb-0.5">August 2025</h3>
+            <ul class="list-disc list-inside space-y-1">
+                <li><a href="{{ site.baseurl }}/resources/sessions/LinkedList-Session-Aug2025-withCode.pdf" class="text-black underline font-medium hover:text-orange-600 transition-colors"><i class="fa-regular fa-file-pdf fa-sm"></i> Programming Session: <b>Linked List</b> Session for CSE24 (PDF) <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub class="text-xs text-gray-600">(Last updated: 2025-08-24)</sub></li>
+            </ul>
+        </div>
 
-    <h3>February 2026</h3>
-    <ul>
-        <li><a
-                href="{{ site.baseurl }}/resources/sessions/HZBRL.pdf"><i
-                    class="fa-regular fa-file-pdf fa-sm"></i> CLUSTER Bootcamp: <b>HZBRL</b> - Fundamentals that won't regret you! (PDF)<i
-                    class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub>(Last updated: 2026-02-27)</sub></li>
-    </ul>
-    <ul>
-        <li><a
-                href="{{ site.baseurl }}/resources/sessions/HZBRL_Assignment.docx"> CLUSTER Bootcamp: <b>HZBRL</b> - Assignment (DOCX)<i
-                    class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub>(Last updated: 2026-02-27)</sub></li>
-    </ul>
+        <div>
+            <h3 class="font-bold text-lg mb-1 border-b border-gray-300 pb-0.5">May 2025</h3>
+            <ul class="list-disc list-inside space-y-1">
+                <li><a href="{{ site.baseurl }}/resources/presentations/Database-Systems-Project-Presentation-Project-tbtKU-Suhrrid.pdf" class="text-black underline font-medium hover:text-orange-600 transition-colors"><i class="fa-regular fa-file-pdf fa-sm"></i> <b>Database Systems</b> Project Presentation: <b>Project tbtKU Suhrrid</b> (PDF) <i class="fa-solid fa-download fa-bounce fa-sm"></i><sup><i class="fa-solid fa-arrow-up-right-from-square fa-2xs"></i></sup></a> <sub class="text-xs text-gray-600">(Last updated: 2026-05-04)</sub></li>
+            </ul>
+        </div>
 
+        <div>
+            <h3 class="font-bold text-lg mb-1 border-b border-gray-300 pb-0.5">1-2 Term Presentation</h3>
+            <ul class="list-disc list-inside space-y-1">
+                <li><a href="{{ site.baseurl }}/resources/presentations/Student-Person-Database-Presentation-OOP_Lab.pdf" class="text-black underline font-medium hover:text-orange-600 transition-colors">OOP Sessional - Project Presentation: <i class="fa-regular fa-file-pdf fa-sm"></i> Student-Person Database - GUI app using Java Swing (PDF) <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub class="text-xs text-gray-600">(Last updated: 2025-05-29)</sub></li>
+            </ul>
+        </div>
 
-    <h3>3-1 Term Presentation</h3>
-    <ul>
-        <li><a
-                href="{{ site.baseurl }}/resources/presentations/SmartXm.pptx"><b>Software Engineering</b> and Information Systems - Project Presentation: <i class="fa-solid fa-person-chalkboard fa-sm"></i>
-                <b>SmartXm</b> - Lab Test Management System with Integrated Judge over Local Network (PPTX)<i
-                    class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub>(Last updated: 2026-01-30)</sub></li>
-    </ul>
+        <div>
+            <h3 class="font-bold text-lg mb-1 border-b border-gray-300 pb-0.5">December 2023</h3>
+            <ul class="list-disc list-inside space-y-1">
+                <li><a href="{{ site.baseurl }}/resources/illustrations/KU_Ambigram.svg" class="text-black underline font-medium hover:text-orange-600 transition-colors"><i class="fa-solid fa-bezier-curve fa-sm"></i> Khulna University Ambigram (Bangla) (SVG) <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub class="text-xs text-gray-600">(Last updated: 2025-05-29)</sub></li>
+            </ul>
+        </div>
 
-
-    <h3>August 2025</h3>
-    <ul>
-        <li><a
-                href="{{ site.baseurl }}/resources/sessions/LinkedList-Session-Aug2025-withCode.pdf"><i
-                    class="fa-regular fa-file-pdf fa-sm"></i> Programming Session: <b>Linked List</b> Session for CSE24 (PDF)<i
-                    class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub>(Last updated: 2025-08-24)</sub></li>
-    </ul>
-
-
-    <h3>May 2025</h3>
-    <ul>
-        <li><a
-                href="{{ site.baseurl }}/resources/presentations/Database-Systems-Project-Presentation-Project-tbtKU-Suhrrid.pdf"><i
-                    class="fa-regular fa-file-pdf fa-sm"></i> <b>Database Systems</b> Project Presentation: <b>Project tbtKU Suhrrid</b> (PDF)<i
-                    class="fa-solid fa-download fa-bounce fa-sm"></i><sup><i class="fa-solid fa-arrow-up-right-from-square fa-2xs"></i></sup></a> <sub>(Last updated: 2026-05-04)</sub></li>
-    </ul>
-
-
-
-    <h3>1-2 Term Presentation</h3>
-    <ul>
-        <!-- https://github.com/KaziRifatMorshed/kazirifatmorshed.github.io/releases/download/resources-uploaded/Student-Person-Database-Presentation-OOP_Lab.pdf -->
-        <li><a
-                href="{{ site.baseurl }}/resources/presentations/Student-Person-Database-Presentation-OOP_Lab.pdf">OOP
-                Sessional - Project Presentation: <i class="fa-regular fa-file-pdf fa-sm"></i>
-                Student-Person Database - GUI app using Java Swing (PDF)<i
-                    class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub>(Last updated: 2025-05-29)</sub></li>
-    </ul>
-
-    <h3>December 2023</h3>
-    <ul>
-        <li><a
-                href="{{ site.baseurl }}/resources/illustrations/KU_Ambigram.svg"><i
-                    class="fa-solid fa-bezier-curve fa-sm"></i> Khulna University
-                Ambigram (Bangla) (SVG)<i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub>(Last updated: 2025-05-29)</sub></li>
-    </ul>
-
-    <h3>1-1 Term Presentation</h3>
-    <ul>
-        <li><a
-                href="{{ site.baseurl }}/resources/presentations/230220_Upgrading_Lifestyle_with_Technology.pdf">English
-                Sessional Course Presentation: <i class="fa-regular fa-file-pdf fa-sm"></i>
-                Upgrading Lifestyle with Technology <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub>(Last updated: 2025-05-29)</sub></li>
-        <li><a
-                href="{{ site.baseurl }}/resources/presentations/230220_Linux.pptx">Computer
-                Fundamental Sessional Course Presentation: <i
-                    class="fa-solid fa-person-chalkboard fa-sm"></i> Linux (PPTX)<i
-                    class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub>(Last updated: 2025-05-29)</sub></li>
-        <li>Presentation: <a
-                href="{{ site.baseurl }}/resources/presentations/My_Speech_to_CSEKU23.odp"><i
-                    class="fa-solid fa-person-chalkboard fa-sm"></i> My
-                Speech to
-                KU-CSE-23 (ODP)
-                <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub>(Last updated: 2025-05-29)</sub></li>
-        <li>
-            <a
-                href="{{ site.baseurl }}/resources/presentations/My_Speech_to_CSEKU23.pptx">Presentation:
-                <i class="fa-solid fa-person-chalkboard fa-sm"></i> My Speech to KU-CSE-23 (PPTX)
-                <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub>(Last updated: 2025-05-29)</sub></li>
-    </ul>
-
+        <div>
+            <h3 class="font-bold text-lg mb-1 border-b border-gray-300 pb-0.5">1-1 Term Presentation</h3>
+            <ul class="list-disc list-inside space-y-1">
+                <li><a href="{{ site.baseurl }}/resources/presentations/230220_Upgrading_Lifestyle_with_Technology.pdf" class="text-black underline font-medium hover:text-orange-600 transition-colors">English Sessional Course Presentation: <i class="fa-regular fa-file-pdf fa-sm"></i> Upgrading Lifestyle with Technology <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub class="text-xs text-gray-600">(Last updated: 2025-05-29)</sub></li>
+                <li><a href="{{ site.baseurl }}/resources/presentations/230220_Linux.pptx" class="text-black underline font-medium hover:text-orange-600 transition-colors">Computer Fundamental Sessional Course Presentation: <i class="fa-solid fa-person-chalkboard fa-sm"></i> Linux (PPTX) <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub class="text-xs text-gray-600">(Last updated: 2025-05-29)</sub></li>
+                <li>Presentation: <a href="{{ site.baseurl }}/resources/presentations/My_Speech_to_CSEKU23.odp" class="text-black underline font-medium hover:text-orange-600 transition-colors"><i class="fa-solid fa-person-chalkboard fa-sm"></i> My Speech to KU-CSE-23 (ODP) <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub class="text-xs text-gray-600">(Last updated: 2025-05-29)</sub></li>
+                <li><a href="{{ site.baseurl }}/resources/presentations/My_Speech_to_CSEKU23.pptx" class="text-black underline font-medium hover:text-orange-600 transition-colors">Presentation: <i class="fa-solid fa-person-chalkboard fa-sm"></i> My Speech to KU-CSE-23 (PPTX) <i class="fa-solid fa-download fa-bounce fa-sm"></i></a> <sub class="text-xs text-gray-600">(Last updated: 2025-05-29)</sub></li>
+            </ul>
+        </div>
+    </div>
 </main>
-
-<script>
-    var parent = document.querySelector("a");
-    //set color on parent div to change color of children
-    parent.style.color = "black";
-</script>

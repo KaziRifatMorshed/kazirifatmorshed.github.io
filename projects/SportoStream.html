@@ -3,98 +3,88 @@ layout: default
 title: "Project : SportoStream"
 ---
 
-<main id="main_" class="animate__animated animate__fadeInUp">
-    <h1>SportoStream</h1>
-    <p style="font-size: 1.1em; font-style: italic; margin-bottom: 15px;">
+<main id="main_" class="animate__animated animate__fadeInUp visible flex flex-col justify-center backdrop-blur-sm border border-black rounded-2xl p-4 min-[1081px]:w-[60%] min-[1081px]:relative min-[1081px]:left-[22%] max-[1080px]:w-full max-[1080px]:left-0 overflow-x-hidden box-border">
+    <h1 class="text-3xl font-bold mb-1">SportoStream</h1>
+    <p class="text-base italic text-amber-900 mb-4 bg-amber-50/50 p-2.5 rounded-xl border border-amber-200">
         MILESTONE: Team CSE KU has streamed a match with its own developed scoring system software
     </p>
 
-    <div class="project-overview">
-        <div class="media-grid">
-            <figure>
-                <img src="{{ site.baseurl }}/images/projects/SportoStream/sportoStream-main.webp" alt="SportoStream live stream - CSE vs English Quarter Final 2026">
-                <figcaption style="text-align: center; font-style: italic; padding: 8px 0; font-size: 0.95em;">Live stream of CSE vs English — Quarter Final 2026, with SportoStream scoring overlay</figcaption>
+    <div class="project-overview mb-6">
+        <div class="media-grid flex flex-col md:flex-row gap-5 my-4">
+            <figure class="flex-1 m-0">
+                <img src="{{ site.baseurl }}/images/projects/SportoStream/sportoStream-main.webp" alt="SportoStream live stream - CSE vs English Quarter Final 2026" class="w-full rounded-2xl block border border-black shadow-sm">
+                <figcaption class="text-center italic py-2 text-xs text-gray-800">Live stream of CSE vs English — Quarter Final 2026, with SportoStream scoring overlay</figcaption>
             </figure>
-            <figure>
-                <iframe src="https://www.youtube.com/embed/Iqw5rV7Dco4?si=z65aMBvyvdPCO2M-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <figure class="flex-1 m-0">
+                <iframe src="https://www.youtube.com/embed/Iqw5rV7Dco4?si=z65aMBvyvdPCO2M-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="w-full aspect-video rounded-2xl border border-black shadow-sm"></iframe>
             </figure>
         </div>
-        <p>
-            <strong>SportoStream</strong> is a sports streaming
-            and scoring system software developed to live-stream
-            matches with a dedicated, in-house scoring overlay.
+        <p class="text-gray-800 leading-relaxed">
+            <strong class="font-semibold text-black">SportoStream</strong> is a sports streaming and scoring system software developed to live-stream matches with a dedicated, in-house scoring overlay.
         </p>
     </div>
 
-    <div class="project-details">
-        <h2>The Backstory</h2>
-        <p>
-            Last term, while chatting in class, my classmate
-            <strong>Sajal Mondal</strong> suggested we build our own software
-            to stream our team's cricket matches. Since I had experience with
-            the Qt framework, I told him I'd look into it.
-        </p>
-        <p>
-            In November 2025, right in the middle of our term finals, the idea
-            suddenly clicked. After some research and prototyping, I realized:
-            <em>We can actually do this.</em> I immediately texted Sajal, and
-            we agreed to build it together in December.
-        </p>
-        <p>
-            Despite a tight deadline and a setback when Sajal was injured by a
-            cricket ball, we pushed through. Even while recovering, Sajal made
-            an incredible contribution — without him, completing this would have
-            been much tougher.
-        </p>
-        <p>
-            We are proud to announce that we now have our own dedicated software
-            for our sports streaming!
-        </p>
+    <div class="project-details mb-6">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-3">The Backstory</h2>
+        <div class="space-y-3 text-sm text-gray-800 leading-relaxed">
+            <p>
+                Last term, while chatting in class, my classmate <strong class="text-black">Sajal Mondal</strong> suggested we build our own software to stream our team's cricket matches. Since I had experience with the Qt framework, I told him I'd look into it.
+            </p>
+            <p>
+                In November 2025, right in the middle of our term finals, the idea suddenly clicked. After some research and prototyping, I realized: <em>We can actually do this.</em> I immediately texted Sajal, and we agreed to build it together in December.
+            </p>
+            <p>
+                Despite a tight deadline and a setback when Sajal was injured by a cricket ball, we pushed through. Even while recovering, Sajal made an incredible contribution — without him, completing this would have been much tougher.
+            </p>
+            <p class="font-semibold text-black">
+                We are proud to announce that we now have our own dedicated software for our sports streaming!
+            </p>
+        </div>
     </div>
 
-    <div class="team-members">
-        <h2>Team Members</h2>
-        <ul>
+    <div class="team-members mb-6">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-2">Team Members</h2>
+        <ul class="list-disc list-inside text-sm text-gray-800 space-y-1">
             <li>Kazi Rifat Morshed</li>
-            <li><a href="https://www.linkedin.com/in/sajal-mondal-74729036a/">Sajal Mondal</a></li>
+            <li><a href="https://www.linkedin.com/in/sajal-mondal-74729036a/" class="text-black underline font-semibold hover:text-gray-700">Sajal Mondal</a></li>
         </ul>
     </div>
 
-    <div class="key-features">
-        <h2>Key Features</h2>
-        <ul>
+    <div class="key-features mb-6">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-2">Key Features</h2>
+        <ul class="list-disc list-inside text-sm text-gray-800 space-y-1">
             <li>Custom-built scoring system for cricket, football, volleyball, table tennis matches</li>
             <li>Live streaming overlay integration</li>
             <li>Real time scoring update in website hosted in a remote server.</li>
         </ul>
     </div>
 
-    <div class="project-gallery">
-        <h2>Gallery</h2>
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-            <figure style="margin: 0;">
-                <img src="{{ site.baseurl }}/images/projects/SportoStream/1.webp" alt="SportoStream Live Score promotion by tbtKU" style="width: 100%; border-radius: 15px;">
-                <figcaption style="text-align: center; font-style: italic; padding: 8px 0; font-size: 0.95em;">tbtKU promoting SportoStream Live Score for the Inter-discipline Cricket Tournament 2026 Final</figcaption>
+    <div class="project-gallery mb-4">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-4">Gallery</h2>
+        <div class="flex flex-col gap-5">
+            <figure class="m-0">
+                <img src="{{ site.baseurl }}/images/projects/SportoStream/1.webp" alt="SportoStream Live Score promotion by tbtKU" class="w-full rounded-2xl border border-black shadow-sm">
+                <figcaption class="text-center italic py-2 text-xs text-gray-800">tbtKU promoting SportoStream Live Score for the Inter-discipline Cricket Tournament 2026 Final</figcaption>
             </figure>
-            <figure style="margin: 0;">
-                <img src="{{ site.baseurl }}/images/projects/SportoStream/2.webp" alt="Appreciation post from Thoughts Behind The KU" style="width: 100%; border-radius: 15px;">
-                <figcaption style="text-align: center; font-style: italic; padding: 8px 0; font-size: 0.95em;">Appreciation from "Thoughts Behind The KU" — recognizing the team behind the live telecast</figcaption>
+            <figure class="m-0">
+                <img src="{{ site.baseurl }}/images/projects/SportoStream/2.webp" alt="Appreciation post from Thoughts Behind The KU" class="w-full rounded-2xl border border-black shadow-sm">
+                <figcaption class="text-center italic py-2 text-xs text-gray-800">Appreciation from "Thoughts Behind The KU" — recognizing the team behind the live telecast</figcaption>
             </figure>
-            <figure style="margin: 0;">
-                <img src="{{ site.baseurl }}/images/projects/SportoStream/3.webp" alt="SportoStream screenshot" style="width: 100%; border-radius: 15px;">
-                <figcaption style="text-align: center; font-style: italic; padding: 8px 0; font-size: 0.95em;">SportoStream Live Score Website in action</figcaption>
+            <figure class="m-0">
+                <img src="{{ site.baseurl }}/images/projects/SportoStream/3.webp" alt="SportoStream screenshot" class="w-full rounded-2xl border border-black shadow-sm">
+                <figcaption class="text-center italic py-2 text-xs text-gray-800">SportoStream Live Score Website in action</figcaption>
             </figure>
-            <figure style="margin: 0;">
-                <img src="{{ site.baseurl }}/images/projects/SportoStream/4.webp" alt="SportoStream screenshot" style="width: 100%; border-radius: 15px;">
-                <figcaption style="text-align: center; font-style: italic; padding: 8px 0; font-size: 0.95em;">Social Media Comments</figcaption>
+            <figure class="m-0">
+                <img src="{{ site.baseurl }}/images/projects/SportoStream/4.webp" alt="SportoStream screenshot" class="w-full rounded-2xl border border-black shadow-sm">
+                <figcaption class="text-center italic py-2 text-xs text-gray-800">Social Media Comments</figcaption>
             </figure>
-            <figure style="margin: 0;">
-                <img src="{{ site.baseurl }}/images/projects/SportoStream/a.webp" alt="SportoStream behind the scenes" style="width: 100%; border-radius: 15px;">
-                <figcaption style="text-align: center; font-style: italic; padding: 8px 0; font-size: 0.95em;"></figcaption>
+            <figure class="m-0">
+                <img src="{{ site.baseurl }}/images/projects/SportoStream/a.webp" alt="SportoStream behind the scenes" class="w-full rounded-2xl border border-black shadow-sm">
+                <figcaption class="text-center italic py-2 text-xs text-gray-800"></figcaption>
             </figure>
-            <figure style="margin: 0;">
-                <img src="{{ site.baseurl }}/images/projects/SportoStream/b.webp" alt="SportoStream behind the scenes" style="width: 100%; border-radius: 15px;">
-                <figcaption style="text-align: center; font-style: italic; padding: 8px 0; font-size: 0.95em;">The squad behind the final match streaming</figcaption>
+            <figure class="m-0">
+                <img src="{{ site.baseurl }}/images/projects/SportoStream/b.webp" alt="SportoStream behind the scenes" class="w-full rounded-2xl border border-black shadow-sm">
+                <figcaption class="text-center italic py-2 text-xs text-gray-800">The squad behind the final match streaming</figcaption>
             </figure>
         </div>
     </div>

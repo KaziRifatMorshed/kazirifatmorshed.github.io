@@ -3,35 +3,32 @@ layout: default
 title: "Project : Quote of my day..."
 ---
 
-<main id="main_" class="animate__animated animate__fadeInUp">
-    <h1>Quote of my day...</h1>
+<main id="main_" class="animate__animated animate__fadeInUp visible flex flex-col justify-center backdrop-blur-sm border border-black rounded-2xl p-4 min-[1081px]:w-[60%] min-[1081px]:relative min-[1081px]:left-[22%] max-[1080px]:w-full max-[1080px]:left-0 overflow-x-hidden box-border">
+    <h1 class="text-3xl font-bold mb-4 border-b border-gray-400 pb-1">Quote of my day...</h1>
 
-    <div class="project-overview">
-        <img src="{{ site.baseurl }}/images/projects/quote-of-my-day.webp" alt="Quote of my day" style="width: 100%; border-radius: 15px; margin-bottom: 15px;">
-        <p>
-            <strong>Quote of my day...</strong> is a GUI desktop application
-            written in C for personal use. It reminds the user of a motivational
-            or meaningful quote every day, selected from its internally
-            predetermined collection of 31 quotes — one for each day of the month.
+    <div class="project-overview mb-6">
+        <img src="{{ site.baseurl }}/images/projects/quote-of-my-day.webp" alt="Quote of my day" class="w-full rounded-2xl border border-black shadow-md mb-4">
+        <p class="text-gray-800 leading-relaxed text-base">
+            <strong class="font-semibold text-black">Quote of my day...</strong> is a GUI desktop application written in C for personal use. It reminds the user of a motivational or meaningful quote every day, selected from its internally predetermined collection of 31 quotes — one for each day of the month.
         </p>
-        <div class="repo-link" style="margin-top: 15px;">
-            <a href="https://github.com/KaziRifatMorshed/Quote-of-my-day" target="_blank" style="text-decoration: none; color: #333; font-weight: bold; font-size: 1.2em;">
+        <div class="repo-link mt-4">
+            <a href="https://github.com/KaziRifatMorshed/Quote-of-my-day" target="_blank" class="no-underline text-gray-900 font-bold text-lg hover:text-black flex items-center gap-2">
                 <i class="fa-brands fa-github"></i> View on GitHub
             </a>
         </div>
     </div>
 
-    <div class="features">
-        <h2>Technologies Used</h2>
-        <ul>
-            <li><strong>Language:</strong> C</li>
-            <li><strong>GUI:</strong> Native desktop GUI</li>
+    <div class="features mb-6">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-2">Technologies Used</h2>
+        <ul class="list-disc list-inside text-sm text-gray-800 space-y-1">
+            <li><strong class="text-black">Language:</strong> C</li>
+            <li><strong class="text-black">GUI:</strong> Native desktop GUI</li>
         </ul>
     </div>
 
-    <div class="key-features">
-        <h2>Key Features</h2>
-        <ul>
+    <div class="key-features mb-6">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-2">Key Features</h2>
+        <ul class="list-disc list-inside text-sm text-gray-800 space-y-1">
             <li>Displays a different quote each day of the month</li>
             <li>31 pre-determined quotes — one for each day</li>
             <li>Lightweight desktop GUI application</li>
@@ -40,13 +37,10 @@ title: "Project : Quote of my day..."
         </ul>
     </div>
 
-    <div class="features">
-        <h2>How It Works</h2>
-        <p>
-            The application checks the current day of the month and displays
-            the corresponding quote from its internal collection. Each time
-            you open the app, you get your quote for the day — a simple yet
-            effective way to start your day with inspiration.
+    <div class="features mb-4">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-2">How It Works</h2>
+        <p class="text-sm text-gray-800 leading-relaxed">
+            The application checks the current day of the month and displays the corresponding quote from its internal collection. Each time you open the app, you get your quote for the day — a simple yet effective way to start your day with inspiration.
         </p>
     </div>
 </main>

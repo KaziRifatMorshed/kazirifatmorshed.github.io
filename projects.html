@@ -3,154 +3,96 @@ layout: default
 title: "Projects : Kazi Rifat Morshed"
 ---
 
-<style>
-    #projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-        padding: 10px;
-    }
-    .project-card {
-        background-color: rgba(255, 165, 165, 0.336);
-        border: 1px solid black;
-        border-radius: 15px;
-        overflow: hidden;
-        transition: transform 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
-    .project-card:hover {
-        transform: scale(1.02);
-        background-color: rgba(185, 118, 118, 0.336);
-    }
-    .project-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-bottom: 1px solid black;
-    }
-    .project-card-content {
-        padding: 15px;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-    }
-    .project-card-content h3 {
-        margin-top: 0;
-        margin-bottom: 10px;
-    }
-    .project-card-content p {
-        font-size: 0.95em;
-        line-height: 1.4;
-        flex-grow: 1;
-    }
-    .project-links {
-        margin-top: 15px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-    .project-links a {
-        font-size: 1.1em;
-        color: black;
-        transition: color 0.2s;
-    }
-    .project-links a:hover {
-        color: #e24329; /* GitLab/GitHub orange/red */
-    }
-</style>
+<main id="main_" class="animate__animated animate__fadeInUp visible flex flex-col justify-center backdrop-blur-sm border border-black rounded-2xl p-4 min-[1081px]:w-[60%] min-[1081px]:relative min-[1081px]:left-[22%] max-[1080px]:w-full max-[1080px]:left-0 overflow-x-hidden box-border">
+    <h1 class="text-3xl font-bold mb-2">Projects Showcase</h1>
+    <p class="text-gray-800 mb-4">A collection of some of my software development projects, tools, and configurations.</p>
 
-<main id="main_" class="animate__animated animate__fadeInUp">
-    <h1>Projects Showcase</h1>
-    <p>A collection of some of my software development projects, tools, and configurations.</p>
-
-    <div id="projects-grid">
+    <div id="projects-grid" class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5 p-2">
         <!-- PlaylistCompanion -->
-        <div class="project-card">
-            <img src="{{ site.baseurl }}/images/projects/PlaylistCompanion/PlaylistCompanion-Banner.png" alt="PlaylistCompanion Banner">
-            <div class="project-card-content">
-                <h3>PlaylistCompanion</h3>
-                <p>A cross-platform desktop application designed to streamline video learning with playlist management, progress tracking, and integrated note-taking. Built with Qt6.</p>
-                <div class="project-links">
-                    <a href="{{ site.baseurl }}/projects/PlaylistCompanion.html"><i class="fa-solid fa-circle-info"></i> Details</a>
-                    <a href="https://github.com/KaziRifatMorshed/Playlist-Companion" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <div class="project-card bg-[rgba(255,165,165,0.336)] border border-black rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-[rgba(185,118,118,0.336)] flex flex-col h-full shadow-sm">
+            <img src="{{ site.baseurl }}/images/projects/PlaylistCompanion/PlaylistCompanion-Banner.png" alt="PlaylistCompanion Banner" class="w-full h-48 object-cover border-b border-black">
+            <div class="project-card-content p-4 flex-grow flex flex-col">
+                <h3 class="font-bold text-xl mb-2">PlaylistCompanion</h3>
+                <p class="text-sm text-gray-800 leading-relaxed flex-grow">A cross-platform desktop application designed to streamline video learning with playlist management, progress tracking, and integrated note-taking. Built with Qt6.</p>
+                <div class="project-links mt-4 flex flex-wrap gap-4 text-black font-medium">
+                    <a href="{{ site.baseurl }}/projects/PlaylistCompanion.html" class="text-black hover:text-orange-600 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-circle-info"></i> Details</a>
+                    <a href="https://github.com/KaziRifatMorshed/Playlist-Companion" target="_blank" class="text-black hover:text-orange-600 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-github"></i> GitHub</a>
                 </div>
             </div>
         </div>
 
         <!-- Mass Certificate Generator -->
-        <div class="project-card">
-            <img src="{{ site.baseurl }}/images/projects/mcg_gui.png" alt="MCG Logo">
-            <div class="project-card-content">
-                <h3>Mass Certificate Generator (MCG)</h3>
-                <p>A GUI program to generate PDF certificates from CSV/Excel data. Features real-time live preview, coordinate calibration, and custom font management.</p>
-                <div class="project-links">
-                    <a href="{{ site.baseurl }}/projects/MassCertificateGenerator.html"><i class="fa-solid fa-circle-info"></i> Details</a>
-                    <a href="https://gitlab.com/KaziRifatMorshed/mass-certificate-generator" target="_blank"><i class="fa-brands fa-gitlab"></i> GitLab</a>
+        <div class="project-card bg-[rgba(255,165,165,0.336)] border border-black rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-[rgba(185,118,118,0.336)] flex flex-col h-full shadow-sm">
+            <img src="{{ site.baseurl }}/images/projects/mcg_gui.png" alt="MCG Logo" class="w-full h-48 object-cover border-b border-black">
+            <div class="project-card-content p-4 flex-grow flex flex-col">
+                <h3 class="font-bold text-xl mb-2">Mass Certificate Generator (MCG)</h3>
+                <p class="text-sm text-gray-800 leading-relaxed flex-grow">A GUI program to generate PDF certificates from CSV/Excel data. Features real-time live preview, coordinate calibration, and custom font management.</p>
+                <div class="project-links mt-4 flex flex-wrap gap-4 text-black font-medium">
+                    <a href="{{ site.baseurl }}/projects/MassCertificateGenerator.html" class="text-black hover:text-orange-600 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-circle-info"></i> Details</a>
+                    <a href="https://gitlab.com/KaziRifatMorshed/mass-certificate-generator" target="_blank" class="text-black hover:text-orange-600 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-gitlab"></i> GitLab</a>
                 </div>
             </div>
         </div>
 
         <!-- SportoStream -->
-        <div class="project-card">
-            <img src="{{ site.baseurl }}/images/projects/SportoStream/sportoStream-main.webp" alt="SportoStream">
-            <div class="project-card-content">
-                <h3>SportoStream</h3>
-                <p>A custom-built sports streaming and scoring system software for Team CSE KU to live-stream cricket matches with a dedicated scoring overlay.</p>
-                <div class="project-links">
-                    <a href="{{ site.baseurl }}/projects/SportoStream.html"><i class="fa-solid fa-circle-info"></i> Details</a>
+        <div class="project-card bg-[rgba(255,165,165,0.336)] border border-black rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-[rgba(185,118,118,0.336)] flex flex-col h-full shadow-sm">
+            <img src="{{ site.baseurl }}/images/projects/SportoStream/sportoStream-main.webp" alt="SportoStream" class="w-full h-48 object-cover border-b border-black">
+            <div class="project-card-content p-4 flex-grow flex flex-col">
+                <h3 class="font-bold text-xl mb-2">SportoStream</h3>
+                <p class="text-sm text-gray-800 leading-relaxed flex-grow">A custom-built sports streaming and scoring system software for Team CSE KU to live-stream cricket matches with a dedicated scoring overlay.</p>
+                <div class="project-links mt-4 flex flex-wrap gap-4 text-black font-medium">
+                    <a href="{{ site.baseurl }}/projects/SportoStream.html" class="text-black hover:text-orange-600 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-circle-info"></i> Details</a>
                 </div>
             </div>
         </div>
 
         <!-- tbtKU Suhrrid -->
-        <div class="project-card">
-            <img src="{{ site.baseurl }}/images/projects/tbtku-Suhrrid.webp" alt="tbtKU Suhrrid">
-            <div class="project-card-content">
-                <h3>tbtKU Suhrrid (সুহৃদ)</h3>
-                <p>A Student Service Platform for Khulna University students to find accommodations and buy/sell used items among peers.</p>
-                <div class="project-links">
-                    <a href="{{ site.baseurl }}/projects/tbtku-suhrrid.html"><i class="fa-solid fa-circle-info"></i> Details</a>
+        <div class="project-card bg-[rgba(255,165,165,0.336)] border border-black rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-[rgba(185,118,118,0.336)] flex flex-col h-full shadow-sm">
+            <img src="{{ site.baseurl }}/images/projects/tbtku-Suhrrid.webp" alt="tbtKU Suhrrid" class="w-full h-48 object-cover border-b border-black">
+            <div class="project-card-content p-4 flex-grow flex flex-col">
+                <h3 class="font-bold text-xl mb-2">tbtKU Suhrrid (সুহৃদ)</h3>
+                <p class="text-sm text-gray-800 leading-relaxed flex-grow">A Student Service Platform for Khulna University students to find accommodations and buy/sell used items among peers.</p>
+                <div class="project-links mt-4 flex flex-wrap gap-4 text-black font-medium">
+                    <a href="{{ site.baseurl }}/projects/tbtku-suhrrid.html" class="text-black hover:text-orange-600 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-circle-info"></i> Details</a>
                 </div>
             </div>
         </div>
 
         <!-- Quote of my day -->
-        <div class="project-card">
-            <img src="{{ site.baseurl }}/images/projects/quote-of-my-day.webp" alt="Quote of my day">
-            <div class="project-card-content">
-                <h3>Quote of my day...</h3>
-                <p>A GUI desktop app written in C that reminds you of a daily quote from a pre-determined collection.</p>
-                <div class="project-links">
-                    <a href="{{ site.baseurl }}/projects/quote-of-my-day.html"><i class="fa-solid fa-circle-info"></i> Details</a>
-                    <a href="https://github.com/KaziRifatMorshed/Quote-of-my-day" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <div class="project-card bg-[rgba(255,165,165,0.336)] border border-black rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-[rgba(185,118,118,0.336)] flex flex-col h-full shadow-sm">
+            <img src="{{ site.baseurl }}/images/projects/quote-of-my-day.webp" alt="Quote of my day" class="w-full h-48 object-cover border-b border-black">
+            <div class="project-card-content p-4 flex-grow flex flex-col">
+                <h3 class="font-bold text-xl mb-2">Quote of my day...</h3>
+                <p class="text-sm text-gray-800 leading-relaxed flex-grow">A GUI desktop app written in C that reminds you of a daily quote from a pre-determined collection.</p>
+                <div class="project-links mt-4 flex flex-wrap gap-4 text-black font-medium">
+                    <a href="{{ site.baseurl }}/projects/quote-of-my-day.html" class="text-black hover:text-orange-600 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-circle-info"></i> Details</a>
+                    <a href="https://github.com/KaziRifatMorshed/Quote-of-my-day" target="_blank" class="text-black hover:text-orange-600 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-github"></i> GitHub</a>
                 </div>
             </div>
         </div>
 
         <!-- VS Code Profile -->
-        <div class="project-card">
-            <img src="{{ site.baseurl }}/images/projects/vs-code.webp" alt="VS Code Config">
-            <div class="project-card-content">
-                <h3>Beginner Friendly VS Code Config</h3>
-                <p>An easy-to-import VS Code profile repository designed specifically for programming beginners.</p>
-                <div class="project-links">
-                    <a href="{{ site.baseurl }}/projects/beginner-friendly-vscode-config.html"><i class="fa-solid fa-circle-info"></i> Details</a>
-                    <a href="https://github.com/KaziRifatMorshed/beginner-friendly-VS-Code-profile" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <div class="project-card bg-[rgba(255,165,165,0.336)] border border-black rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-[rgba(185,118,118,0.336)] flex flex-col h-full shadow-sm">
+            <img src="{{ site.baseurl }}/images/projects/vs-code.webp" alt="VS Code Config" class="w-full h-48 object-cover border-b border-black">
+            <div class="project-card-content p-4 flex-grow flex flex-col">
+                <h3 class="font-bold text-xl mb-2">Beginner Friendly VS Code Config</h3>
+                <p class="text-sm text-gray-800 leading-relaxed flex-grow">An easy-to-import VS Code profile repository designed specifically for programming beginners.</p>
+                <div class="project-links mt-4 flex flex-wrap gap-4 text-black font-medium">
+                    <a href="{{ site.baseurl }}/projects/beginner-friendly-vscode-config.html" class="text-black hover:text-orange-600 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-circle-info"></i> Details</a>
+                    <a href="https://github.com/KaziRifatMorshed/beginner-friendly-VS-Code-profile" target="_blank" class="text-black hover:text-orange-600 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-github"></i> GitHub</a>
                 </div>
             </div>
         </div>
 
         <!-- Student Person Database -->
-        <div class="project-card">
-            <img src="{{ site.baseurl }}/images/projects/java-gui-student-database.webp" alt="Student Database">
-            <div class="project-card-content">
-                <h3>JAVA GUI: Student-Person-Database</h3>
-                <p>An OOP sessional project using Java Swing with serialization/deserialization for managing student records.</p>
-                <div class="project-links">
-                    <a href="{{ site.baseurl }}/projects/java-gui-student-database.html"><i class="fa-solid fa-circle-info"></i> Details</a>
-                    <a href="https://github.com/KaziRifatMorshed/student-database-oop-java-swing" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <div class="project-card bg-[rgba(255,165,165,0.336)] border border-black rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-[rgba(185,118,118,0.336)] flex flex-col h-full shadow-sm">
+            <img src="{{ site.baseurl }}/images/projects/java-gui-student-database.webp" alt="Student Database" class="w-full h-48 object-cover border-b border-black">
+            <div class="project-card-content p-4 flex-grow flex flex-col">
+                <h3 class="font-bold text-xl mb-2">JAVA GUI: Student-Person-Database</h3>
+                <p class="text-sm text-gray-800 leading-relaxed flex-grow">An OOP sessional project using Java Swing with serialization/deserialization for managing student records.</p>
+                <div class="project-links mt-4 flex flex-wrap gap-4 text-black font-medium">
+                    <a href="{{ site.baseurl }}/projects/java-gui-student-database.html" class="text-black hover:text-orange-600 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-circle-info"></i> Details</a>
+                    <a href="https://github.com/KaziRifatMorshed/student-database-oop-java-swing" target="_blank" class="text-black hover:text-orange-600 transition-colors flex items-center gap-1.5"><i class="fa-brands fa-github"></i> GitHub</a>
                 </div>
             </div>
         </div>

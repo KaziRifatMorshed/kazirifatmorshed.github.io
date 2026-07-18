@@ -4,20 +4,20 @@
         {% include head.html %}
         <title>{{ page.title }}</title>
     </head>
-    <body>
-        <div id="full_body">
-            <div id="telegram_button">
+    <body class="min-h-screen text-black antialiased">
+        <div id="full_body" class="relative min-h-screen">
+            <div id="telegram_button" class="fixed left-1.5 bottom-1.5 z-50 block transition-transform duration-200 hover:scale-110">
                 <a href="https://www.t.me/FiXiReULV">
-                    <img src="{{ site.baseurl }}/icons/telegram.svg" alt="Contact me in telegram (Most Preferable)" id="telegram_button-icon" />
+                    <img src="{{ site.baseurl }}/icons/telegram.svg" alt="Contact me in telegram (Most Preferable)" id="telegram_button-icon" class="h-[50px] w-auto" />
                 </a>
             </div>
-            <button type="button" onclick="showBG()" id="ShowBG">
+            <button type="button" onclick="showBG()" id="ShowBG" class="fixed right-2.5 bottom-2.5 z-50 w-[30px] h-[30px] rounded-xl border border-[rgba(255,165,165,0.336)] bg-[rgba(255,165,165,0.336)] hover:bg-[rgba(185,118,118,0.336)] hover:border-black transition-colors duration-200 flex items-center justify-center cursor-pointer">
                 <i class="fa-regular fa-flag"></i>
             </button>
 
             {% include header.html %}
 
-            <div id="content-body">
+            <div id="content-body" class="flex flex-wrap flex-row relative">
                 {% include aside_bar.html %}
                 {{ content }}
             </div>

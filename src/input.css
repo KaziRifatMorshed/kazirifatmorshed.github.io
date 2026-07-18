@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: myCalibriLight;
+    src: url("./font/Calibri-Light.woff");
+}
+
+@layer base {
+    body {
+        background-image: url("./images/3g1r-large-center.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        font-family: "myCalibriLight", "Calibri Light", "Calibri", "sans-serif";
+        font-size: 18px;
+    }
+
+    ::selection {
+        color: white;
+        background: rgba(0, 0, 0, 0.521);
+    }
+}
