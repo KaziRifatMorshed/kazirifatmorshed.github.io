@@ -1,0 +1,79 @@
+---
+layout: default
+title: "Project : SmartXm"
+---
+
+<main id="main_" class="animate__animated animate__fadeInUp visible flex flex-col justify-center backdrop-blur-sm border border-black rounded-2xl p-4 min-[1081px]:w-[60%] min-[1081px]:relative min-[1081px]:left-[22%] max-[1080px]:w-full max-[1080px]:left-0 overflow-x-hidden box-border">
+    <div class="flex items-center gap-3 mb-2 flex-wrap">
+        <h1 class="text-3xl font-bold">SmartXm</h1>
+        <span class="text-xs uppercase font-bold bg-amber-200 text-amber-900 px-2 py-0.5 rounded-full border border-amber-400">Under Development · Group Project</span>
+    </div>
+    <p class="text-base italic text-amber-900 mb-4 bg-amber-50/50 p-2.5 rounded-xl border border-amber-200">
+        Cross-Platform Anti-Cheat Exam Management & Judging System for Isolated Networks
+    </p>
+
+    <div class="project-overview mb-6">
+        <div class="mb-4">
+            <img src="{{ site.baseurl }}/images/projects/smartxm.webp" alt="SmartXm Desktop Interface" class="w-full rounded-2xl block border border-black shadow-sm" />
+            <p class="text-center italic py-2 text-xs text-gray-800">SmartXm desktop application interface featuring exam management, local server integration, and evaluation pipeline</p>
+        </div>
+        <p class="text-gray-800 leading-relaxed text-sm md:text-base">
+            <strong class="font-semibold text-black">SmartXm</strong> is a cross-platform desktop application architected for conducting secure university laboratory examinations in isolated or local computer networks. The system integrates robust client-server communication, sandboxed code execution, and an offline auto-judging engine to establish a reliable, cheating-resistant exam delivery, submission, and automated evaluation workflow.
+        </p>
+    </div>
+
+    <div class="project-details mb-6">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-3">Key Technical Contributions</h2>
+        <ul class="list-disc list-inside space-y-2 text-sm text-gray-800 leading-relaxed">
+            <li>
+                <strong class="font-semibold text-black">Network Architecture:</strong> Architected and implemented local and remote server networking, including native socket communication (Winsock2 / POSIX sockets) specifically engineered for network-isolated lab environments.
+            </li>
+            <li>
+                <strong class="font-semibold text-black">Integrated Student & Teacher UI:</strong> Designed and implemented modern Qt user interfaces featuring an embedded in-app PDF exam question viewer, built-in code editor/IDE, and instant submission system.
+            </li>
+            <li>
+                <strong class="font-semibold text-black">Concurrency & Data Persistence:</strong> Engineered multi-threaded networking pipelines and persistent database adapters utilizing Qt 6 modules (Core, Widgets, Network, Sql, Concurrent, PDFWidgets) across MySQL/MariaDB and SQLite backends.
+            </li>
+            <li>
+                <strong class="font-semibold text-black">Auto-Judging Pipeline:</strong> Contributed to the offline evaluation mechanism for compile-and-run verification against test suites in isolated sandbox sessions.
+            </li>
+        </ul>
+    </div>
+
+    <div class="tech-stack mb-6">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-2">Technologies & Tools</h2>
+        <div class="flex flex-wrap gap-2 text-xs font-medium">
+            <span class="px-2.5 py-1 bg-white/40 border border-black rounded-lg">C++</span>
+            <span class="px-2.5 py-1 bg-white/40 border border-black rounded-lg">Qt 6 Framework</span>
+            <span class="px-2.5 py-1 bg-white/40 border border-black rounded-lg">QMake / Ninja</span>
+            <span class="px-2.5 py-1 bg-white/40 border border-black rounded-lg">MySQL / MariaDB</span>
+            <span class="px-2.5 py-1 bg-white/40 border border-black rounded-lg">SQLite</span>
+            <span class="px-2.5 py-1 bg-white/40 border border-black rounded-lg">Native Sockets</span>
+            <span class="px-2.5 py-1 bg-white/40 border border-black rounded-lg">qScintilla2</span>
+        </div>
+    </div>
+
+    <div class="project-details mb-6">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-2">Academic Context</h2>
+        <ul class="list-disc list-inside text-sm text-gray-800 space-y-1">
+            <li><strong class="text-black">Course:</strong> 0714 02 CSE 3104 — Software Engineering and Information Systems Project/Fieldwork</li>
+            <li><strong class="text-black">Course Teacher:</strong> <a href="https://ku.ac.bd/discipline/cse/faculty/kazi" target="_blank" class="text-black underline font-semibold hover:text-gray-700">Prof. Dr. Kazi Masudul Alam<sup><i class="fa-solid fa-arrow-up-right-from-square fa-2xs"></i></sup></a> (Professor, Computer Science and Engineering Discipline, Khulna University)</li>
+            <li><strong class="text-black">Presentation Slide:</strong> <a href="{{ site.baseurl }}/resources/presentations/SmartXm.pptx" class="text-black underline font-semibold hover:text-gray-700"><i class="fa-solid fa-person-chalkboard fa-sm"></i> Download Presentation (PPTX) <i class="fa-solid fa-download fa-xs"></i></a></li>
+        </ul>
+    </div>
+
+    <div class="team-members mb-6">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-2">Team Members</h2>
+        <ul class="list-disc list-inside text-sm text-gray-800 space-y-1">
+            <li>Kazi Rifat Morshed (Student ID: 230220)</li>
+            <li>Ibnul Abrar Shahriar Seam (Student ID: 230201)</li>
+            <li>MD. Siam Ahmed (Student ID: 230202)</li>
+        </ul>
+    </div>
+
+    <div class="repo-link mt-2">
+        <a href="https://github.com/KaziRifatMorshed/SmartXm" target="_blank" class="no-underline text-gray-900 font-bold text-base hover:text-black inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-black bg-white/20 hover:bg-white/40 transition-colors">
+            <i class="fa-brands fa-github fa-lg"></i> View Repository on GitHub
+        </a>
+    </div>
+</main>
