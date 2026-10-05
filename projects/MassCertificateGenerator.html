@@ -29,14 +29,14 @@ title: "Project : Mass Certificate Generator"
                 <span class="font-bold text-base text-gray-800 pb-0.5 flex items-center gap-1.5">
                     <i class="fa-solid fa-download"></i> Downloads (v1.1.0):
                 </span>
-                <a href="https://github.com/KaziRifatMorshed/Mass-Certificate-Generator-MCG-gh-Public/releases/download/v1.1/MassCertificateGenerator.exe" class="download-btn bg-white/20 border border-black px-3.5 py-1.5 rounded-xl text-black font-bold hover:bg-white/40 transition-colors inline-flex items-center gap-1.5 text-sm no-underline" title="Download for Windows (.exe)">
+                <a href="https://github.com/KaziRifatMorshed/Mass-Certificate-Generator-MCG-gh-Public/releases/download/v1.1/MassCertificateGenerator.exe" target="_blank" class="download-btn bg-white/20 border border-black px-3.5 py-1.5 rounded-xl text-black font-bold hover:bg-white/40 transition-colors inline-flex items-center gap-1.5 text-sm no-underline" title="Download for Windows (.exe)">
                     <i class="fa-brands fa-windows"></i> Windows (.exe)
                 </a>
-                <a href="https://github.com/KaziRifatMorshed/Mass-Certificate-Generator-MCG-gh-Public/releases/download/v1.1/MassCertificateGenerator-v1.1.0-linux-x86_64.tar.gz" class="download-btn bg-white/20 border border-black px-3.5 py-1.5 rounded-xl text-black font-bold hover:bg-white/40 transition-colors inline-flex items-center gap-1.5 text-sm no-underline" title="Download Universal Linux Binary (.tar.gz)">
+                <a href="https://github.com/KaziRifatMorshed/Mass-Certificate-Generator-MCG-gh-Public/releases/download/v1.1/MassCertificateGenerator-v1.1.0-linux-x86_64.tar.gz" target="_blank" class="download-btn bg-white/20 border border-black px-3.5 py-1.5 rounded-xl text-black font-bold hover:bg-white/40 transition-colors inline-flex items-center gap-1.5 text-sm no-underline" title="Download Universal Linux Binary (.tar.gz)">
                     <i class="fa-brands fa-linux"></i> Linux (.tar.gz)
                 </a>
-                <a href="#aur-package" class="download-btn bg-white/20 border border-black px-3.5 py-1.5 rounded-xl text-black font-bold hover:bg-white/40 transition-colors inline-flex items-center gap-1.5 text-sm no-underline" title="Arch Linux (AUR)">
-                    <i class="fa-brands fa-linux"></i> Arch (AUR)
+                <a href="https://aur.archlinux.org/packages/mass-certificate-generator-bin" target="_blank" class="download-btn bg-white/20 border border-black px-3.5 py-1.5 rounded-xl text-black font-bold hover:bg-white/40 transition-colors inline-flex items-center gap-1.5 text-sm no-underline" title="View on Arch User Repository (AUR)">
+                    <i class="fa-brands fa-linux"></i> Arch (AUR) <i class="fa-solid fa-arrow-up-right-from-square fa-2xs"></i>
                 </a>
                 <span class="download-btn bg-white/20 border border-black px-3.5 py-1.5 rounded-xl text-black font-bold inline-flex items-center gap-1.5 text-sm opacity-60 cursor-not-allowed" title="Upcoming for macOS">
                     <i class="fa-brands fa-apple"></i> macOS (Upcoming)
@@ -47,15 +47,20 @@ title: "Project : Mass Certificate Generator"
 
     <!-- Arch Linux / AUR snippet -->
     <div id="aur-package" class="aur-install mb-6 bg-white/10 p-4 rounded-xl border border-black/20">
-        <h3 class="font-bold text-base mb-2 text-black flex items-center gap-2">
-            <i class="fa-solid fa-box-open"></i> Arch Linux / Manjaro (AUR)
-        </h3>
-        <p class="text-xs text-gray-800 mb-2">MCG is packaged natively for Arch Linux users via the Arch User Repository (AUR):</p>
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
+            <h3 class="font-bold text-base text-black flex items-center gap-2">
+                <i class="fa-solid fa-box-open"></i> Arch Linux / Manjaro (AUR)
+            </h3>
+            <a href="https://aur.archlinux.org/packages/mass-certificate-generator-bin" target="_blank" class="text-xs font-semibold text-black underline hover:text-gray-700 flex items-center gap-1">
+                View on AUR <i class="fa-solid fa-arrow-up-right-from-square fa-2xs"></i>
+            </a>
+        </div>
+        <p class="text-xs text-gray-800 mb-2">MCG is packaged natively for Arch Linux users via the Arch User Repository (<a href="https://aur.archlinux.org/packages/mass-certificate-generator-bin" target="_blank" class="underline font-semibold text-black hover:text-gray-700">AUR package</a>):</p>
         <div class="bg-black/80 text-white rounded-lg p-3 text-xs font-mono overflow-x-auto space-y-1">
             <div class="text-gray-400"># Native package (recommended, lightweight)</div>
-            <div>yay -S mass-certificate-generator</div>
+            <div>yay -S mass-certificate-generator-bin</div>
             <div class="text-gray-400 mt-2"># Or using paru</div>
-            <div>paru -S mass-certificate-generator</div>
+            <div>paru -S mass-certificate-generator-bin</div>
         </div>
     </div>
 
