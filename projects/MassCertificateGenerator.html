@@ -6,32 +6,56 @@ title: "Project : Mass Certificate Generator"
 <main id="main_" class="animate__animated animate__fadeInUp visible flex flex-col justify-center backdrop-blur-sm border border-black rounded-2xl p-4 min-[1081px]:w-[60%] min-[1081px]:relative min-[1081px]:left-[22%] max-[1080px]:w-full max-[1080px]:left-0 overflow-x-hidden box-border">
     <div class="flex items-center gap-5 flex-wrap mb-4">
         <img src="{{ site.baseurl }}/icons/MCG_logo.png" alt="MCG Logo" class="h-24 w-auto max-w-full">
-        <h1 class="text-3xl font-bold">Mass Certificate Generator (MCG)</h1>
+        <div>
+            <h1 class="text-3xl font-bold">Mass Certificate Generator (MCG)</h1>
+            <p class="text-sm font-semibold text-gray-700 mt-1">High-performance bulk certificate generator desktop application</p>
+        </div>
     </div>
 
     <div class="project-overview mb-6">
         <p class="leading-relaxed text-gray-800">
-            <strong class="font-semibold text-black">Mass Certificate Generator (MCG)</strong> is a GUI program to generate PDF certificates from a CSV/Excel file containing participant data; useful for university clubs and programs to create certificates within no time!
+            <strong class="font-semibold text-black">Mass Certificate Generator (MCG)</strong> is a modern, high-performance desktop application to generate bulk PDF and image certificates dynamically from CSV or Excel data. Designed for university clubs, conferences, workshops, and educational programs to produce hundreds of customized certificates in seconds!
         </p>
+        
         <div class="repo-link mt-4 flex flex-wrap gap-4 items-center">
-            <a href="https://gitlab.com/KaziRifatMorshed/mass-certificate-generator" target="_blank" class="no-underline text-[#E24329] font-bold text-lg hover:underline flex items-center gap-2 mr-2">
-                <i class="fa-brands fa-gitlab"></i> View on GitLab
+            <a href="https://github.com/KaziRifatMorshed/Mass-Certificate-Generator-MCG-gh-Public" target="_blank" class="no-underline text-gray-900 font-bold text-base hover:text-black flex items-center gap-2 px-3 py-1.5 rounded-xl border border-black bg-white/20 hover:bg-white/40 transition-colors">
+                <i class="fa-brands fa-github fa-lg"></i> GitHub
             </a>
-            
+            <a href="https://gitlab.com/KaziRifatMorshed/mass-certificate-generator" target="_blank" class="no-underline text-[#E24329] font-bold text-base hover:text-[#c4331b] flex items-center gap-2 px-3 py-1.5 rounded-xl border border-black bg-white/20 hover:bg-white/40 transition-colors">
+                <i class="fa-brands fa-gitlab fa-lg"></i> GitLab
+            </a>
+
             <div class="downloads flex flex-wrap gap-2.5 items-center">
-                <span class="font-bold text-xl text-gray-800 pb-0.5 flex items-center gap-1.5">
-                    <i class="fa-solid fa-download"></i> Download:
+                <span class="font-bold text-base text-gray-800 pb-0.5 flex items-center gap-1.5">
+                    <i class="fa-solid fa-download"></i> Downloads (v1.1.0):
                 </span>
-                <a href="https://github.com/KaziRifatMorshed/Mass-Certificate-Generator-MCG-gh-Public/releases/download/v1.0/MassCertificateGenerator-v1.0-windows.exe" class="download-btn bg-white/20 border border-black px-4 py-1.5 rounded-xl text-black font-bold hover:bg-white/40 transition-colors inline-flex items-center gap-1.5 text-sm" title="Download for Windows">
-                    <i class="fa-brands fa-windows"></i> Windows
+                <a href="https://github.com/KaziRifatMorshed/Mass-Certificate-Generator-MCG-gh-Public/releases/download/v1.1/MassCertificateGenerator.exe" class="download-btn bg-white/20 border border-black px-3.5 py-1.5 rounded-xl text-black font-bold hover:bg-white/40 transition-colors inline-flex items-center gap-1.5 text-sm no-underline" title="Download for Windows (.exe)">
+                    <i class="fa-brands fa-windows"></i> Windows (.exe)
                 </a>
-                <a href="https://github.com/KaziRifatMorshed/Mass-Certificate-Generator-MCG-gh-Public/releases/download/v1.0/MassCertificateGenerator-v1.0-linux" class="download-btn bg-white/20 border border-black px-4 py-1.5 rounded-xl text-black font-bold hover:bg-white/40 transition-colors inline-flex items-center gap-1.5 text-sm" title="Download for Linux">
-                    <i class="fa-brands fa-linux"></i> Linux
+                <a href="https://github.com/KaziRifatMorshed/Mass-Certificate-Generator-MCG-gh-Public/releases/download/v1.1/MassCertificateGenerator-v1.1.0-linux-x86_64.tar.gz" class="download-btn bg-white/20 border border-black px-3.5 py-1.5 rounded-xl text-black font-bold hover:bg-white/40 transition-colors inline-flex items-center gap-1.5 text-sm no-underline" title="Download Universal Linux Binary (.tar.gz)">
+                    <i class="fa-brands fa-linux"></i> Linux (.tar.gz)
                 </a>
-                <a href="#" class="download-btn bg-white/20 border border-black px-4 py-1.5 rounded-xl text-black font-bold hover:bg-white/40 transition-colors inline-flex items-center gap-1.5 text-sm opacity-60 cursor-not-allowed" title="Download for macOS">
-                    <i class="fa-brands fa-apple"></i> macOS
+                <a href="#aur-package" class="download-btn bg-white/20 border border-black px-3.5 py-1.5 rounded-xl text-black font-bold hover:bg-white/40 transition-colors inline-flex items-center gap-1.5 text-sm no-underline" title="Arch Linux (AUR)">
+                    <i class="fa-brands fa-linux"></i> Arch (AUR)
                 </a>
+                <span class="download-btn bg-white/20 border border-black px-3.5 py-1.5 rounded-xl text-black font-bold inline-flex items-center gap-1.5 text-sm opacity-60 cursor-not-allowed" title="Upcoming for macOS">
+                    <i class="fa-brands fa-apple"></i> macOS (Upcoming)
+                </span>
             </div>
+        </div>
+    </div>
+
+    <!-- Arch Linux / AUR snippet -->
+    <div id="aur-package" class="aur-install mb-6 bg-white/10 p-4 rounded-xl border border-black/20">
+        <h3 class="font-bold text-base mb-2 text-black flex items-center gap-2">
+            <i class="fa-solid fa-box-open"></i> Arch Linux / Manjaro (AUR)
+        </h3>
+        <p class="text-xs text-gray-800 mb-2">MCG is packaged natively for Arch Linux users via the Arch User Repository (AUR):</p>
+        <div class="bg-black/80 text-white rounded-lg p-3 text-xs font-mono overflow-x-auto space-y-1">
+            <div class="text-gray-400"># Native package (recommended, lightweight)</div>
+            <div>yay -S mass-certificate-generator</div>
+            <div class="text-gray-400 mt-2"># Or using paru</div>
+            <div>paru -S mass-certificate-generator</div>
         </div>
     </div>
 
@@ -40,66 +64,138 @@ title: "Project : Mass Certificate Generator"
         <div class="video-container rounded-2xl overflow-hidden border border-black shadow-md">
             <iframe width="100%" height="450" src="https://www.youtube.com/embed/0W1JGwzVvLk?si=NVgp46Tpe19Y5Qe-" title="Mass Certificate Generator (MCG) - YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="w-full aspect-video"></iframe>
         </div>
+        <p class="text-xs text-gray-700 mt-2">
+            Also available on YouTube Playlist: <a href="https://www.youtube.com/playlist?list=PLTkxHCc7JjF0QC4yZf5OXDyFlfzSJvK1v" target="_blank" class="text-black font-semibold underline hover:text-gray-600">MCG Video Demonstrations <i class="fa-solid fa-arrow-up-right-from-square fa-2xs"></i></a>
+        </p>
     </div>
 
-    <div class="features space-y-4">
-        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-2">Features</h2>
+    <div class="features space-y-4 mb-6">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-2">Key Features</h2>
 
         <div class="feature-item bg-white/10 p-4 rounded-xl border border-black/20">
-            <h3 class="font-bold text-lg mb-2 text-black">1. Tabbed Pipeline Workflow</h3>
-            <p class="text-sm leading-relaxed mb-2 text-gray-800">MCG guides you through a logical sequence of steps using a tabbed interface:</p>
+            <h3 class="font-bold text-lg mb-2 text-black flex items-center gap-2"><i class="fa-solid fa-layer-group"></i> 1. Tabbed Pipeline Workflow</h3>
+            <p class="text-sm leading-relaxed mb-2 text-gray-800">MCG guides you sequentially through an intuitive setup process:</p>
             <ul class="list-disc list-inside text-sm space-y-1 text-gray-800">
-                <li><strong class="text-black">Template Selection:</strong> Select the base PDF template.</li>
-                <li><strong class="text-black">Coordinate Calibration:</strong> Define text positioning, where the text will appear on the certificate.</li>
-                <li><strong class="text-black">Font Management:</strong> Import and manage custom fonts (TTF, OTF, WOFF).</li>
-                <li><strong class="text-black">Text Body Configuration:</strong> Define what text (constant or variable) to overlay.</li>
-                <li><strong class="text-black">Data Import:</strong> Load participant data from CSV or Excel files.</li>
-                <li><strong class="text-black">Export Settings:</strong> Configure output format and naming. You can save individual PDF or single file containing all certificate pages!</li>
+                <li><strong class="text-black">Template Selection:</strong> Load any custom PDF certificate template (supports any dimensions and orientations).</li>
+                <li><strong class="text-black">Coordinate Calibration:</strong> Interactively define text boundaries and target positioning on the template using percentage-based bounding coordinates.</li>
+                <li><strong class="text-black">Font Management:</strong> Add and manage custom TrueType (<code class="bg-black/5 px-1 py-0.5 rounded text-xs">.ttf</code>), OpenType (<code class="bg-black/5 px-1 py-0.5 rounded text-xs">.otf</code>), and Collection (<code class="bg-black/5 px-1 py-0.5 rounded text-xs">.ttc</code>) fonts with real-time embedding support.</li>
+                <li><strong class="text-black">Text Body Configuration:</strong> Combine dynamic data layers (mapped to CSV/Excel columns) and static text with individualized fonts, sizes, formatting (Bold, Italic, Underline), and colors.</li>
+                <li><strong class="text-black">Data Import:</strong> Read participant data effortlessly from <code class="bg-black/5 px-1 py-0.5 rounded text-xs">.csv</code> or <code class="bg-black/5 px-1 py-0.5 rounded text-xs">.xlsx</code> files with column auto-detection.</li>
+                <li><strong class="text-black">Export Settings:</strong> Choose individual files named by recipient column or a single aggregated multi-page document, with PDF, PNG, and JPEG export formats.</li>
             </ul>
         </div>
 
         <div class="feature-item bg-white/10 p-4 rounded-xl border border-black/20">
-            <h3 class="font-bold text-lg mb-2 text-black">2. Real-time Live Preview</h3>
+            <h3 class="font-bold text-lg mb-2 text-black flex items-center gap-2"><i class="fa-solid fa-bolt"></i> 2. Fully Event-Driven & Real-Time Sync</h3>
             <ul class="list-disc list-inside text-sm space-y-1 text-gray-800">
-                <li><strong class="text-black">Dynamic Rendering & PDF Viewer:</strong> There is an integrated PDF viewer to show exactly how the final output will look, including font styles, colors, and positioning.</li>
-                <li><strong class="text-black">Debug Mode:</strong> Includes a toggle to visualize the text boundary boxes, helping with precise alignment.</li>
+                <li><strong class="text-black">Zero Manual "Save" Hassles:</strong> Font additions, font renaming, text changes, size tweaks, and style changes update dynamically in real time.</li>
+                <li><strong class="text-black">Instant Visual Preview:</strong> Integrated PDF rendering updates immediately upon any change without manual refreshing.</li>
+                <li><strong class="text-black">Non-Destructive Font Renaming:</strong> Renaming custom fonts updates all dependent text layers automatically without breaking configurations.</li>
             </ul>
         </div>
 
         <div class="feature-item bg-white/10 p-4 rounded-xl border border-black/20">
-            <h3 class="font-bold text-lg mb-2 text-black">3. Dynamic Font & Text Management</h3>
+            <h3 class="font-bold text-lg mb-2 text-black flex items-center gap-2"><i class="fa-solid fa-font"></i> 3. Robust Font Engine & Fault Tolerance</h3>
             <ul class="list-disc list-inside text-sm space-y-1 text-gray-800">
-                <li><strong class="text-black">Custom Fonts:</strong> Users can add multiple custom font files and assign them nicknames for easy selection.</li>
-                <li><strong class="text-black">Mixed Content:</strong> Supports adding multiple "Text Blocks" which can be:
-                    <ul class="list-circle list-inside ml-5 space-y-0.5 mt-0.5">
-                        <li>Variable: Pulled from specific columns in your imported data (e.g., "Full Name").</li>
-                        <li>Constant: Static text that appears on every certificate.</li>
-                    </ul>
-                </li>
-                <li><strong class="text-black">Styling Options:</strong> Each text block supports individual settings for font, size, color, and formatting (Bold, Italic, Underline).</li>
-                <li><strong class="text-black">Reordering:</strong> A simple up/down movement system to change the stacking order of text blocks.</li>
+                <li><strong class="text-black">Automatic Embedding Sanitization:</strong> Automatically detects and clears OS/2 table embedding restrictions (<code class="bg-black/5 px-1 py-0.5 rounded text-xs">fsType</code>) in memory/cache to prevent PDF engine substitute-font crashes.</li>
+                <li><strong class="text-black">TrueType Collection (.ttc) Support:</strong> Full parsing and sanitization for multi-font collection files.</li>
+                <li><strong class="text-black">3-Tier Rendering Fallback:</strong> If custom fonts fail or are missing, MCG automatically falls back to clean HTML styling, followed by standard PDF Base-14 fonts, ensuring export jobs never abort unexpectedly.</li>
             </ul>
         </div>
 
         <div class="feature-item bg-white/10 p-4 rounded-xl border border-black/20">
-            <h3 class="font-bold text-lg mb-2 text-black">4. Data Integration & Bulk Export</h3>
+            <h3 class="font-bold text-lg mb-2 text-black flex items-center gap-2"><i class="fa-solid fa-bug"></i> 4. Non-Destructive Live Debug Mode</h3>
             <ul class="list-disc list-inside text-sm space-y-1 text-gray-800">
-                <li><strong class="text-black">File Support:</strong> Import data from CSV or Excel (.xlsx, .xls).</li>
-                <li><strong class="text-black">Flexible Output:</strong>
-                    <ul class="list-circle list-inside ml-5 space-y-0.5 mt-0.5">
-                        <li>Single File: Generate one large PDF containing all certificates.</li>
-                        <li>Individual Files: Generate a separate PDF for each row of data.</li>
-                    </ul>
-                </li>
-                <li><strong class="text-black">Smart Naming:</strong> Choose a column from the data (like "Name" or "ID") to automatically name the individual exported PDF files.</li>
+                <li>Visual blue bounding box helps calibrate layout boundaries in the interactive preview without ever appearing in exported PDF/image files.</li>
             </ul>
         </div>
 
         <div class="feature-item bg-white/10 p-4 rounded-xl border border-black/20">
-            <h3 class="font-bold text-lg mb-2 text-black">5. Session Persistence</h3>
+            <h3 class="font-bold text-lg mb-2 text-black flex items-center gap-2"><i class="fa-solid fa-floppy-disk"></i> 5. Multi-Platform Session State Persistence</h3>
             <ul class="list-disc list-inside text-sm space-y-1 text-gray-800">
-                <li><strong class="text-black">Auto-Save/Load:</strong> The application remembers your entire configuration—including file paths, font selections, text blocks, and coordinates—across sessions. If you close MCG, it will restore your exact progress when reopened.</li>
+                <li><strong class="text-black">Automatic State Recovery:</strong> The entire workspace (loaded templates, coordinate boxes, custom font registries, text blocks, data sources, and export preferences) is saved to standard OS user data directories (<code class="bg-black/5 px-1 py-0.5 rounded text-xs">mcg_session_state.json</code>).</li>
+                <li><strong class="text-black">Debounced Disk I/O:</strong> State saves are debounced to guarantee zero input lag during typing.</li>
+                <li><strong class="text-black">Safe Migration:</strong> Automatically detects and migrates legacy session files.</li>
             </ul>
         </div>
+    </div>
+
+    <!-- Running & Building from Source -->
+    <div class="building-source mb-6">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-3">Running & Building from Source</h2>
+        
+        <p class="text-sm text-gray-800 mb-3"><strong class="text-black">Prerequisites:</strong> Python 3.9+ (Python 3.10 – 3.13 recommended) and <code class="bg-black/5 px-1 py-0.5 rounded text-xs">pip</code> package manager.</p>
+
+        <div class="space-y-3">
+            <div class="bg-white/10 p-3 rounded-xl border border-black/20">
+                <h4 class="font-semibold text-sm text-black mb-1">1. Clone & Setup Virtual Environment</h4>
+                <div class="bg-black/80 text-white rounded-lg p-3 text-xs font-mono overflow-x-auto space-y-1">
+                    <div>git clone https://github.com/KaziRifatMorshed/Mass-Certificate-Generator-MCG-gh-Public.git</div>
+                    <div>cd Mass-Certificate-Generator-MCG-gh-Public/MassCertificateGenerator-MCG</div>
+                    <div class="mt-2">python3 -m venv .venv</div>
+                    <div>source .venv/bin/activate <span class="text-gray-400"># On Linux/macOS</span></div>
+                    <div class="text-gray-400"># .venv\Scripts\activate # On Windows</div>
+                    <div class="mt-2">pip install -r requirements.txt</div>
+                </div>
+            </div>
+
+            <div class="bg-white/10 p-3 rounded-xl border border-black/20">
+                <h4 class="font-semibold text-sm text-black mb-1">2. Run Application</h4>
+                <div class="bg-black/80 text-white rounded-lg p-2.5 text-xs font-mono overflow-x-auto">
+                    python main.py
+                </div>
+            </div>
+
+            <div class="bg-white/10 p-3 rounded-xl border border-black/20">
+                <h4 class="font-semibold text-sm text-black mb-1">3. Build Standalone Binaries (Nuitka / PyInstaller)</h4>
+                <div class="bg-black/80 text-white rounded-lg p-3 text-xs font-mono overflow-x-auto space-y-1">
+                    <div class="text-gray-400"># Build standalone binary with Nuitka (recommended)</div>
+                    <div>python build_package.py</div>
+                    <div class="text-gray-400 mt-2"># Or build with PyInstaller</div>
+                    <div>python build_package.py pyinstaller</div>
+                    <div class="text-gray-400 mt-2"># On Windows (with Inno Setup 6 support for installer)</div>
+                    <div>build_windows.bat</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roadmap -->
+    <div class="roadmap mb-6">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-3">Roadmap</h2>
+        <div class="bg-white/10 p-4 rounded-xl border border-black/20 text-sm space-y-1.5 text-gray-800">
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-green-600"></i> Change Debug Mode (Preview-only, non-destructive export)</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-green-600"></i> Single Combined File Output</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-green-600"></i> Individual File Output with dynamic file naming</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-green-600"></i> Dynamic Paper Size & Orientation (any PDF dimensions)</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-green-600"></i> Multi-format export (PDF, PNG, JPEG)</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-green-600"></i> Fully event-driven font and text sync (no manual save buttons)</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-green-600"></i> Automated font embedding restriction sanitization (.ttf, .otf, .ttc)</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-green-600"></i> Cross-platform build script (Nuitka & PyInstaller) + Inno Setup installer</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-green-600"></i> Arch User Repository (AUR) packaging</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-green-600"></i> Self-documenting user AppData session persistence</div>
+            <div class="flex items-center gap-2 text-gray-500"><i class="fa-regular fa-circle"></i> QR code generation and certificate verification credentials</div>
+            <div class="flex items-center gap-2 text-gray-500"><i class="fa-regular fa-circle"></i> Auto-update notifier and updater</div>
+            <div class="flex items-center gap-2 text-gray-500"><i class="fa-regular fa-circle"></i> macOS installer bundle (.dmg)</div>
+            <div class="flex items-center gap-2 text-gray-500"><i class="fa-regular fa-circle"></i> Android companion app</div>
+        </div>
+    </div>
+
+    <!-- Acknowledgements & Dependencies -->
+    <div class="acknowledgements mb-6">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-2">Acknowledgements & Dependencies</h2>
+        <ul class="list-disc list-inside text-sm space-y-1 text-gray-800">
+            <li><a href="https://pymupdf.readthedocs.io/en/latest/" target="_blank" class="text-black font-semibold underline hover:text-gray-700">PyMuPDF</a> – Ultra-fast PDF rendering and document manipulation</li>
+            <li><a href="https://wiki.qt.io/Qt_for_Python" target="_blank" class="text-black font-semibold underline hover:text-gray-700">PySide6 / Qt</a> – Modern cross-platform graphical user interface</li>
+            <li><a href="https://pandas.pydata.org/" target="_blank" class="text-black font-semibold underline hover:text-gray-700">pandas</a> & <a href="https://openpyxl.readthedocs.io/" target="_blank" class="text-black font-semibold underline hover:text-gray-700">openpyxl</a> – Robust spreadsheet and CSV ingestion</li>
+        </ul>
+    </div>
+
+    <!-- License -->
+    <div class="license mb-4">
+        <h2 class="text-2xl font-bold border-b border-gray-400 pb-1 mb-2">License</h2>
+        <p class="text-sm text-gray-800">
+            Distributed under the <strong class="font-semibold text-black">Apache License 2.0</strong>. See the <a href="https://github.com/KaziRifatMorshed/Mass-Certificate-Generator-MCG-gh-Public/blob/main/LICENSE" target="_blank" class="text-black underline font-semibold hover:text-gray-700">LICENSE</a> file for details.
+        </p>
     </div>
 </main>
