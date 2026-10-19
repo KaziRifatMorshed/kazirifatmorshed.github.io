@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Context Mixing Compression & Decompression Demo</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .font-mono-code { font-family: 'Fira Code', 'Courier New', Courier, monospace; }
+    .transition-all-custom { transition: all 0.3s ease-in-out; }
+    @keyframes pulse-highlight {
+      0%, 100% { background-color: rgba(59, 130, 246, 0.15); }
+      50% { background-color: rgba(59, 130, 246, 0.35); }
+    }
+    .active-bit-flash {
+      animation: pulse-highlight 1.5s infinite;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-slate-800/80 backdrop-blur border-b border-slate-700 sticky top-0 z-50">
+    <div class="max-w-7xl mx-mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="p-2 bg-blue-600 rounded-lg text-white">
+          <i class="fa-solid fa-sliders text-xl"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold bg-gradient-to-r from-blue-400 to-teal-300 bg-clip-text text-transparent">
+            Context Mixing Visualizer
+          </h1>
+          <p class="text-xs text-slate-400">PAQ / Logistic Mixing Compression & Decompression Interactive Demo</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="#theory" class="text-xs bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded text-slate-200 transition">
+          <i class="fa-solid fa-book-open mr-1"></i> How it Works
+        </a>
+        <a href="#simulator" class="text-xs bg-blue-600 hover:bg-blue-500 px-3 py-1.5 rounded text-white transition">
+          <i class="fa-solid fa-play mr-1"></i> Interactive Simulator
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-6 space-y-8">
+
+    <!-- Overview Banner -->
+    <section class="bg-slate-800/50 border border-slate-700 rounded-xl p-6 shadow-xl">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-blue-400 font-semibold">
+            <i class="fa-solid fa-sitemap"></i> 1. Multiple Context Models
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Instead of relying on a single context length, Context Mixing runs multiple predictors in parallel (e.g., Order-0 overall bias, Order-1 previous bit, Order-2 previous byte/word).
+          </p>
+        </div>
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-teal-400 font-semibold">
+            <i class="fa-solid fa-calculator"></i> 2. Logistic Mixing
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Predictions $P_i(1)$ are stretched into logit domain $x_i = \ln(P_i/(1-P_i))$, combined with adaptive weights $w_i$, and squashed back via $P(1) = 1/(1+e^{-\sum w_i x_i})$.
+          </p>
+        </div>
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-indigo-400 font-semibold">
+            <i class="fa-solid fa-graduation-cap"></i> 3. Online Learning
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            After each bit $y \in \{0, 1\}$ is processed, model counts update, and weight values adapt using gradient descent: $w_i \leftarrow w_i + \eta \cdot x_i \cdot (y - P(1))$.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulator Section -->
+    <section id="simulator" class="space-y-6">
+      
+      <!-- Input & Controls Card -->
+      <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-xl space-y-4">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-gears text-blue-400"></i> Simulation Controls & Input
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-end">
+          <!-- Text Input -->
+          <div class="lg:col-span-5 space-y-1">
+            <label class="text-xs font-medium text-slate-300 flex justify-between">
+              <span>Input Text / Symbol Stream</span>
+              <span id="bit-length-badge" class="text-blue-400 font-mono">0 bits</span>
+            </label>
+            <input type="text" id="input-text" value="ABAC" 
+                   class="w-full bg-slate-900 border border-slate-600 rounded px-3 py-2 text-sm font-mono-code text-blue-300 focus:outline-none focus:border-blue-500">
+          </div>
+
+          <!-- Presets -->
+          <div class="lg:col-span-3 space-y-1">
+            <label class="text-xs font-medium text-slate-300">Quick Test Presets</label>
+            <select id="preset-select" class="w-full bg-slate-900 border border-slate-600 rounded px-2.5 py-2 text-xs text-slate-200 focus:outline-none focus:border-blue-500">
+              <option value="ABAC">Short Text: "ABAC"</option>
+              <option value="10101010">Alternating Bits: 10101010</option>
+              <option value="11110000">Biased Bits: 11110000</option>
+              <option value="HELLO">Word: "HELLO"</option>
+            </select>
+          </div>
+
+          <!-- Learning Rate Slider -->
+          <div class="lg:col-span-2 space-y-1">
+            <label class="text-xs font-medium text-slate-300 flex justify-between">
+              <span>Learning Rate ($\eta$)</span>
+              <span id="eta-val" class="font-mono text-teal-400">0.25</span>
+            </label>
+            <input type="range" id="eta-slider" min="0.05" max="0.80" step="0.05" value="0.25" class="w-full h-1.5 bg-slate-700 rounded appearance-none cursor-pointer accent-teal-400">
+          </div>
+
+          <!-- Reset/Reload Button -->
+          <div class="lg:col-span-2">
+            <button id="btn-init" class="w-full bg-slate-700 hover:bg-slate-600 text-white text-xs font-semibold py-2 px-3 rounded transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-rotate-left"></i> Reset Simulation
+            </button>
+          </div>
+        </div>
+
+        <!-- Playback Controls Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-700">
+          <div class="flex items-center gap-2">
+            <button id="btn-step-prev" disabled class="bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-600 px-3 py-1.5 rounded text-xs text-white font-medium flex items-center gap-1">
+              <i class="fa-solid fa-backward-step"></i> Prev Bit
+            </button>
+            <button id="btn-play" class="bg-blue-600 hover:bg-blue-500 px-4 py-1.5 rounded text-xs text-white font-bold flex items-center gap-1.5 shadow-md">
+              <i class="fa-solid fa-play" id="play-icon"></i> <span id="play-text">Auto Play</span>
+            </button>
+            <button id="btn-step-next" class="bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded text-xs text-white font-medium flex items-center gap-1">
+              Next Bit <i class="fa-solid fa-forward-step"></i>
+            </button>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <span class="text-xs text-slate-400">Speed:</span>
+            <input type="range" id="speed-slider" min="200" max="1500" step="100" value="700" class="w-28 h-1.5 bg-slate-700 rounded appearance-none cursor-pointer accent-blue-500">
+            <span id="speed-val" class="text-xs font-mono text-slate-300">700ms</span>
+          </div>
+
+          <div class="text-xs text-slate-400 font-mono">
+            Bit Progress: <span id="progress-text" class="text-blue-400 font-bold">0 / 0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Bit Stream Indicator -->
+      <div class="bg-slate-800 border border-slate-700 rounded-xl p-4 shadow-xl space-y-2">
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Bit Stream Visualization</span>
+          <span class="text-xs text-slate-400">Grey = Pending | Highlighted = Active | Green = Processed</span>
+        </div>
+        <div id="bit-stream-container" class="flex flex-wrap gap-1.5 p-3 bg-slate-900 rounded-lg min-h-[50px] items-center border border-slate-800 overflow-x-auto">
+          <!-- Dynamically populated bit boxes -->
+        </div>
+      </div>
+
+      <!-- Visual Breakdown Grid (Step-by-Step Context Mixing) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Column Left: Active Models & Probabilities (7 Cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <!-- Models Output Card -->
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-5 shadow-xl space-y-4">
+            <div class="flex justify-between items-center border-b border-slate-700 pb-3">
+              <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-cubes text-blue-400"></i> Individual Context Models Predictions
+              </h3>
+              <span class="text-xs px-2 py-0.5 rounded bg-blue-900/60 text-blue-300 font-mono">Bit #<span id="current-bit-idx">0</span></span>
+            </div>
+
+            <!-- Model 0: Order-0 -->
+            <div class="bg-slate-900/80 border border-slate-700/80 rounded-lg p-3 space-y-2">
+              <div class="flex justify-between text-xs">
+                <span class="font-bold text-blue-300">Model 0: Order-0 Context (Overall)</span>
+                <span class="text-slate-400 font-mono">Context: [Global Frequency]</span>
+              </div>
+              <div class="grid grid-cols-3 gap-2 text-xs font-mono text-center">
+                <div class="bg-slate-800 p-1.5 rounded">
+                  <span class="text-slate-400 block text-[10px]">Counts (0 / 1)</span>
+                  <span id="m0-counts" class="text-slate-200">1 : 1</span>
+                </div>
+                <div class="bg-slate-800 p-1.5 rounded">
+                  <span class="text-slate-400 block text-[10px]">Probability $P_0(1)$</span>
+                  <span id="m0-p1" class="text-teal-300 font-bold">0.500</span>
+                </div>
+                <div class="bg-slate-800 p-1.5 rounded">
+                  <span class="text-slate-400 block text-[10px]">Stretched $x_0$</span>
+                  <span id="m0-x" class="text-indigo-300">0.000</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Model 1: Order-1 -->
+            <div class="bg-slate-900/80 border border-slate-700/80 rounded-lg p-3 space-y-2">
+              <div class="flex justify-between text-xs">
+                <span class="font-bold text-teal-300">Model 1: Order-1 Context (1 Bit)</span>
+                <span class="text-slate-400 font-mono">Active Context: "<span id="m1-ctx-str" class="text-teal-200">None</span>"</span>
+              </div>
+              <div class="grid grid-cols-3 gap-2 text-xs font-mono text-center">
+                <div class="bg-slate-800 p-1.5 rounded">
+                  <span class="text-slate-400 block text-[10px]">Context Counts (0 / 1)</span>
+                  <span id="m1-counts" class="text-slate-200">1 : 1</span>
+                </div>
+                <div class="bg-slate-800 p-1.5 rounded">
+                  <span class="text-slate-400 block text-[10px]">Probability $P_1(1)$</span>
+                  <span id="m1-p1" class="text-teal-300 font-bold">0.500</span>
+                </div>
+                <div class="bg-slate-800 p-1.5 rounded">
+                  <span class="text-slate-400 block text-[10px]">Stretched $x_1$</span>
+                  <span id="m1-x" class="text-indigo-300">0.000</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Model 2: Order-2 / 2-Bit -->
+            <div class="bg-slate-900/80 border border-slate-700/80 rounded-lg p-3 space-y-2">
+              <div class="flex justify-between text-xs">
+                <span class="font-bold text-indigo-300">Model 2: Order-2 Context (2 Bits)</span>
+                <span class="text-slate-400 font-mono">Active Context: "<span id="m2-ctx-str" class="text-indigo-200">None</span>"</span>
+              </div>
+              <div class="grid grid-cols-3 gap-2 text-xs font-mono text-center">
+                <div class="bg-slate-800 p-1.5 rounded">
+                  <span class="text-slate-400 block text-[10px]">Context Counts (0 / 1)</span>
+                  <span id="m2-counts" class="text-slate-200">1 : 1</span>
+                </div>
+                <div class="bg-slate-800 p-1.5 rounded">
+                  <span class="text-slate-400 block text-[10px]">Probability $P_2(1)$</span>
+                  <span id="m2-p1" class="text-teal-300 font-bold">0.500</span>
+                </div>
+                <div class="bg-slate-800 p-1.5 rounded">
+                  <span class="text-slate-400 block text-[10px]">Stretched $x_2$</span>
+                  <span id="m2-x" class="text-indigo-300">0.000</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Mixer Math & Weighted Combination -->
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-5 shadow-xl space-y-4">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2 border-b border-slate-700 pb-3">
+              <i class="fa-solid fa-blender text-teal-400"></i> Logistic Mixing Calculation
+            </h3>
+
+            <!-- Formula display -->
+            <div class="bg-slate-900 p-3 rounded-lg text-xs font-mono space-y-1 border border-slate-800">
+              <div class="text-slate-400">Weighted Sum ($S$):</div>
+              <div id="math-sum-formula" class="text-blue-300 font-bold text-sm">
+                $S = (w_0 \cdot x_0) + (w_1 \cdot x_1) + (w_2 \cdot x_2) = 0.000$
+              </div>
+              <div class="text-slate-400 pt-1">Squash Function: $P(1) = \frac{1}{1 + e^{-S}}$</div>
+            </div>
+
+            <!-- Output Combined Probabilities bar -->
+            <div class="space-y-2">
+              <div class="flex justify-between text-xs font-mono">
+                <span class="text-red-400 font-bold">P(0) = <span id="final-p0-val">0.5000</span></span>
+                <span class="text-emerald-400 font-bold">P(1) = <span id="final-p1-val">0.5000</span></span>
+              </div>
+              <div class="w-full h-4 bg-slate-900 rounded-full overflow-hidden flex border border-slate-700">
+                <div id="bar-p0" class="bg-red-500/80 h-full transition-all duration-300" style="width: 50%;"></div>
+                <div id="bar-p1" class="bg-emerald-500/80 h-full transition-all duration-300" style="width: 50%;"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Column Right: Adaptive Weights, Entropy & Decompression Check (5 Cols) -->
+        <div class="lg:col-span-5 space-y-6">
+
+          <!-- Weights & Adaptation Card -->
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-5 shadow-xl space-y-4">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2 border-b border-slate-700 pb-3">
+              <i class="fa-solid fa-chart-line text-indigo-400"></i> Adaptive Model Weights
+            </h3>
+
+            <div class="space-y-3">
+              <!-- Model 0 Weight -->
+              <div class="space-y-1">
+                <div class="flex justify-between text-xs">
+                  <span class="text-blue-300">$w_0$ (Order-0)</span>
+                  <span id="w0-val" class="font-mono font-bold text-slate-200">1.0000</span>
+                </div>
+                <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
+                  <div id="w0-bar" class="bg-blue-500 h-full transition-all duration-300" style="width: 33%;"></div>
+                </div>
+              </div>
+
+              <!-- Model 1 Weight -->
+              <div class="space-y-1">
+                <div class="flex justify-between text-xs">
+                  <span class="text-teal-300">$w_1$ (Order-1)</span>
+                  <span id="w1-val" class="font-mono font-bold text-slate-200">1.0000</span>
+                </div>
+                <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
+                  <div id="w1-bar" class="bg-teal-500 h-full transition-all duration-300" style="width: 33%;"></div>
+                </div>
+              </div>
+
+              <!-- Model 2 Weight -->
+              <div class="space-y-1">
+                <div class="flex justify-between text-xs">
+                  <span class="text-indigo-300">$w_2$ (Order-2)</span>
+                  <span id="w2-val" class="font-mono font-bold text-slate-200">1.0000</span>
+                </div>
+                <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
+                  <div id="w2-bar" class="bg-indigo-500 h-full transition-all duration-300" style="width: 33%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-slate-900/90 p-3 rounded-lg border border-slate-800 text-xs space-y-1 font-mono">
+              <span class="text-slate-400 block text-[10px]">Weight Update Delta ($\Delta w_i = \eta \cdot x_i \cdot (y - P(1))$):</span>
+              <div id="weight-delta-log" class="text-slate-300 text-[11px] leading-relaxed">
+                Awaiting first bit step...
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-Time Shannon Entropy & Compressed Bits -->
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-5 shadow-xl space-y-4">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2 border-b border-slate-700 pb-3">
+              <i class="fa-solid fa-compress text-amber-400"></i> Compression Efficiency
+            </h3>
+
+            <div class="grid grid-cols-2 gap-3 text-center font-mono">
+              <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">
+                <span class="text-[10px] text-slate-400 block">Total Compressed Size</span>
+                <span id="total-compressed-bits" class="text-amber-300 font-bold text-lg">0.00</span>
+                <span class="text-[10px] text-slate-400">bits</span>
+              </div>
+              <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">
+                <span class="text-[10px] text-slate-400 block">Bitrate Ratio</span>
+                <span id="bpc-ratio" class="text-teal-300 font-bold text-lg">0.00</span>
+                <span class="text-[10px] text-slate-400">bits / bit</span>
+              </div>
+            </div>
+
+            <p class="text-[11px] text-slate-400 leading-normal">
+              Note: Using ideal arithmetic/range coding, each predicted bit $y$ requires exactly $-\log_2 P(y)$ bits of compressed storage.
+            </p>
+          </div>
+
+          <!-- Symmetric Decompression Verification Panel -->
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-5 shadow-xl space-y-3">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2 border-b border-slate-700 pb-2">
+              <i class="fa-solid fa-arrow-rotate-left text-emerald-400"></i> Decompressor Synchronization
+            </h3>
+
+            <div class="text-xs space-y-2">
+              <p class="text-slate-300">
+                The decompressor reconstructs the exact same context tables and weights bit-by-bit in real time:
+              </p>
+              <div class="bg-slate-900 p-3 rounded-lg font-mono text-emerald-300 text-xs break-all border border-slate-800 min-h-[38px]" id="decompressed-stream">
+                [Awaiting stream start...]
+              </div>
+              <div class="flex items-center gap-2 text-xs">
+                <span class="text-slate-400">Status:</span>
+                <span id="match-status" class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-700 text-slate-300">
+                  READY
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Educational Theory Section -->
+    <section id="theory" class="bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-xl space-y-6 mt-8">
+      <h2 class="text-lg font-bold text-white flex items-center gap-2 border-b border-slate-700 pb-3">
+        <i class="fa-solid fa-graduation-cap text-blue-400"></i> Educational Guide: How Context Mixing Works
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300 leading-relaxed">
+        <div class="space-y-3">
+          <h3 class="font-bold text-blue-300 text-base">1. The Problem with Single Context Models</h3>
+          <p>
+            Traditional predictive compressors (like PPM or Huffman) use a fixed context order. High-order contexts (e.g., last 4 characters) are extremely accurate when matches are found, but fail completely when encountering unseen sequences. Low-order contexts (e.g., last 1 character) are reliable but less specific.
+          </p>
+          <p>
+            <strong>Context Mixing solves this dilemma:</strong> It runs multiple independent models of varying orders simultaneously and dynamically combines their predictions.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h3 class="font-bold text-teal-300 text-base">2. Why Logistic (Non-linear) Mixing?</h3>
+          <p>
+            Instead of simple linear averaging $P_{mix} = \frac{P_1 + P_2}{2}$, modern compressors like <strong>PAQ</strong> convert probabilities into log-odds (logit domain) using the $stretch$ function:
+          </p>
+          <div class="bg-slate-900 p-2.5 rounded font-mono text-xs text-teal-200 border border-slate-700">
+            $stretch(p) = \ln\left(\frac{p}{1-p}\right)$
+          </div>
+          <p>
+            In logit space, confident predictions (near 0 or 1) stretch to large negative/positive infinity. When summed with weights, a single highly confident model can overrule multiple uncertain models!
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h3 class="font-bold text-indigo-300 text-base">3. Adaptive Weight Updates (Online Learning)</h3>
+          <p>
+            The mixer assigns weight $w_i$ to each model. After predicting bit $y \in \{0, 1\}$, weights update using stochastic gradient descent to minimize cross-entropy loss:
+          </p>
+          <div class="bg-slate-900 p-2.5 rounded font-mono text-xs text-indigo-200 border border-slate-700">
+            $w_i \leftarrow w_i + \eta \cdot x_i \cdot (y - P(1))$
+          </div>
+          <p>
+            Models that predicted correctly receive increased weight, while models that gave wrong high-confidence predictions are quickly penalized.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h3 class="font-bold text-emerald-300 text-base">4. Symmetric Decompression Guarantee</h3>
+          <p>
+            Data compression is lossless because the <strong>Decompressor</strong> executes the exact same mathematical logic:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-xs text-slate-300">
+            <li>Calculates predictions $P_i(1)$ using the exact same context history.</li>
+            <li>Applies the same weights $w_i$ to get $P(1)$.</li>
+            <li>Reads the actual encoded bit $y$ from the arithmetic stream.</li>
+            <li>Updates context counts and weights identical to the compressor.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-slate-800 border-t border-slate-700 py-4 text-center text-xs text-slate-400 mt-auto">
+    Context Mixing Visualizer &copy; Educational Data Compression Tool. All credit goes to Google Gemini 3.6 Flash for making this interactive site.
+  </footer>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // --- Helper Math Functions ---
+    function stretch(p) {
+      // Clamp probability to avoid infinity
+      const eps = 0.001;
+      p = Math.max(eps, Math.min(1 - eps, p));
+      return Math.log(p / (1 - p));
+    }
+
+    function squash(x) {
+      return 1 / (1 + Math.log1p(Math.exp(-x) - 1) < 0 ? Math.exp(-x) : Math.exp(-x)); 
+      // Standard robust sigmoid: 1 / (1 + exp(-x))
+    }
+
+    function safeSigmoid(x) {
+      if (x > 10) return 0.999;
+      if (x < -10) return 0.001;
+      return 1 / (1 + Math.exp(-x));
+    }
+
+    function charToBits(str) {
+      let bits = [];
+      for (let i = 0; i < str.length; i++) {
+        const code = str.charCodeAt(i);
+        for (let b = 7; b >= 0; b--) {
+          bits.push((code >> b) & 1);
+        }
+      }
+      return bits;
+    }
+
+    function bitsToChar(bits) {
+      let str = "";
+      for (let i = 0; i < bits.length; i += 8) {
+        if (i + 8 <= bits.length) {
+          let code = 0;
+          for (let b = 0; b < 8; b++) {
+            code = (code << 1) | bits[i + b];
+          }
+          str += String.fromCharCode(code);
+        }
+      }
+      return str;
+    }
+
+    // --- State Management ---
+    let state = {
+      inputText: "ABAC",
+      bits: [],
+      currentIndex: 0,
+      isPlaying: false,
+      timer: null,
+      speed: 700,
+      learningRate: 0.25,
+
+      // Model Context Memory Tables
+      // Model 0: order-0 (global) counts
+      m0_counts: [1, 1], // [count0, count1]
+
+      // Model 1: order-1 (1-bit context) -> { "0": [c0, c1], "1": [c0, c1] }
+      m1_tables: {},
+
+      // Model 2: order-2 (2-bit context) -> { "00": [c0, c1], ... }
+      m2_tables: {},
+
+      // Model Weights
+      weights: [1.0, 1.0, 1.0],
+
+      // Metrics & Output Logs
+      totalCompressedBits: 0,
+      history: [],
+      decompressedBits: []
+    };
+
+    // DOM Elements
+    const elInputText = document.getElementById('input-text');
+    const elPresetSelect = document.getElementById('preset-select');
+    const elEtaSlider = document.getElementById('eta-slider');
+    const elEtaVal = document.getElementById('eta-val');
+    const elBtnInit = document.getElementById('btn-init');
+
+    const elBtnPlay = document.getElementById('btn-play');
+    const elPlayIcon = document.getElementById('play-icon');
+    const elPlayText = document.getElementById('play-text');
+    const elBtnStepNext = document.getElementById('btn-step-next');
+    const elBtnStepPrev = document.getElementById('btn-step-prev');
+    const elSpeedSlider = document.getElementById('speed-slider');
+    const elSpeedVal = document.getElementById('speed-val');
+
+    const elBitStreamContainer = document.getElementById('bit-stream-container');
+    const elProgressText = document.getElementById('progress-text');
+    const elBitLengthBadge = document.getElementById('bit-length-badge');
+    const elCurrentBitIdx = document.getElementById('current-bit-idx');
+
+    // UI Model Elements
+    const elM0Counts = document.getElementById('m0-counts');
+    const elM0P1 = document.getElementById('m0-p1');
+    const elM0X = document.getElementById('m0-x');
+
+    const elM1CtxStr = document.getElementById('m1-ctx-str');
+    const elM1Counts = document.getElementById('m1-counts');
+    const elM1P1 = document.getElementById('m1-p1');
+    const elM1X = document.getElementById('m1-x');
+
+    const elM2CtxStr = document.getElementById('m2-ctx-str');
+    const elM2Counts = document.getElementById('m2-counts');
+    const elM2P1 = document.getElementById('m2-p1');
+    const elM2X = document.getElementById('m2-x');
+
+    const elMathSumFormula = document.getElementById('math-sum-formula');
+    const elFinalP0Val = document.getElementById('final-p0-val');
+    const elFinalP1Val = document.getElementById('final-p1-val');
+    const elBarP0 = document.getElementById('bar-p0');
+    const elBarP1 = document.getElementById('bar-p1');
+
+    const elW0Val = document.getElementById('w0-val');
+    const elW1Val = document.getElementById('w1-val');
+    const elW2Val = document.getElementById('w2-val');
+    const elW0Bar = document.getElementById('w0-bar');
+    const elW1Bar = document.getElementById('w1-bar');
+    const elW2Bar = document.getElementById('w2-bar');
+    const elWeightDeltaLog = document.getElementById('weight-delta-log');
+
+    const elTotalCompressedBits = document.getElementById('total-compressed-bits');
+    const elBpcRatio = document.getElementById('bpc-ratio');
+    const elDecompressedStream = document.getElementById('decompressed-stream');
+    const elMatchStatus = document.getElementById('match-status');
+
+    // Initialize Simulation
+    function initSimulation() {
+      stopAutoPlay();
+
+      const raw = elInputText ? elInputText.value : "";
+      if (!raw) return;
+
+      // Check if raw is binary digits or string
+      if (/^[01]+$/.test(raw)) {
+        state.bits = raw.split('').map(Number);
+      } else {
+        state.bits = charToBits(raw);
+      }
+
+      state.currentIndex = 0;
+      state.learningRate = elEtaSlider ? parseFloat(elEtaSlider.value) : 0.25;
+      state.m0_counts = [1, 1]; // laplace smoothing
+      state.m1_tables = {};
+      state.m2_tables = {};
+      state.weights = [1.0, 1.0, 1.0];
+      state.totalCompressedBits = 0;
+      state.history = [];
+      state.decompressedBits = [];
+
+      // Render bit stream elements
+      renderBitStreamBoxes();
+      updateUI();
+    }
+
+    function renderBitStreamBoxes() {
+      if (!elBitStreamContainer) return;
+      elBitStreamContainer.innerHTML = '';
+      if (elBitLengthBadge) elBitLengthBadge.textContent = `${state.bits.length} bits`;
+      
+      state.bits.forEach((b, idx) => {
+        const box = document.createElement('div');
+        box.id = `bit-box-${idx}`;
+        box.className = `w-7 h-8 flex flex-col items-center justify-center rounded font-mono text-xs font-bold transition-all border ${getBitBoxClass(idx)}`;
+        box.innerHTML = `
+          <span>${b}</span>
+          <span class="text-[8px] font-normal opacity-60">${idx}</span>
+        `;
+        elBitStreamContainer.appendChild(box);
+      });
+    }
+
+    function getBitBoxClass(idx) {
+      if (idx < state.currentIndex) {
+        return 'bg-emerald-950 border-emerald-600 text-emerald-300'; // Processed
+      } else if (idx === state.currentIndex) {
+        return 'bg-blue-600 border-blue-400 text-white active-bit-flash shadow-lg scale-105'; // Active
+      } else {
+        return 'bg-slate-800 border-slate-700 text-slate-400'; // Pending
+      }
+    }
+
+    function updateBitStreamVisuals() {
+      state.bits.forEach((_, idx) => {
+        const box = document.getElementById(`bit-box-${idx}`);
+        if (box) {
+          box.className = `w-7 h-8 flex flex-col items-center justify-center rounded font-mono text-xs font-bold transition-all border ${getBitBoxClass(idx)}`;
+        }
+      });
+
+      // Scroll active bit into view
+      const activeBox = document.getElementById(`bit-box-${state.currentIndex}`);
+      if (activeBox) {
+        activeBox.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+
+    // Helper to get probability from context table with Laplace smoothing
+    function getContextProb(table, ctx) {
+      if (!table[ctx]) {
+        table[ctx] = [1, 1]; // initial pseudo-counts
+      }
+      const counts = table[ctx];
+      const total = counts[0] + counts[1];
+      return { p1: counts[1] / total, counts: counts };
+    }
+
+    // Single step forward computation
+    function computeCurrentBitStep() {
+      if (state.currentIndex >= state.bits.length) return null;
+
+      const y = state.bits[state.currentIndex];
+
+      // Context extraction
+      // Model 0: Order-0
+      const m0_p1 = state.m0_counts[1] / (state.m0_counts[0] + state.m0_counts[1]);
+
+      // Model 1: Order-1 (last 1 bit)
+      let ctx1 = "NONE";
+      if (state.currentIndex >= 1) {
+        ctx1 = `${state.bits[state.currentIndex - 1]}`;
+      }
+      const m1_res = getContextProb(state.m1_tables, ctx1);
+
+      // Model 2: Order-2 (last 2 bits)
+      let ctx2 = "NONE";
+      if (state.currentIndex >= 2) {
+        ctx2 = `${state.bits[state.currentIndex - 2]}${state.bits[state.currentIndex - 1]}`;
+      }
+      const m2_res = getContextProb(state.m2_tables, ctx2);
+
+      // Stretched Logit Domain
+      const x0 = stretch(m0_p1);
+      const x1 = stretch(m1_res.p1);
+      const x2 = stretch(m2_res.p1);
+
+      // Weighted Sum
+      const S = (state.weights[0] * x0) + (state.weights[1] * x1) + (state.weights[2] * x2);
+      
+      // Combined Probability
+      const final_p1 = safeSigmoid(S);
+      const final_p0 = 1 - final_p1;
+
+      // Information content (ideal code length in bits for actual bit y)
+      const probY = y === 1 ? final_p1 : final_p0;
+      const bitCost = -Math.log2(Math.max(0.0001, probY));
+
+      // Weight Update Delta Calculation
+      const error = y - final_p1;
+      const eta = state.learningRate;
+      const dw0 = eta * x0 * error;
+      const dw1 = eta * x1 * error;
+      const dw2 = eta * x2 * error;
+
+      return {
+        idx: state.currentIndex,
+        y: y,
+        m0: { p1: m0_p1, x: x0, counts: [...state.m0_counts] },
+        m1: { ctx: ctx1, p1: m1_res.p1, x: x1, counts: [...m1_res.counts] },
+        m2: { ctx: ctx2, p1: m2_res.p1, x: x2, counts: [...m2_res.counts] },
+        sum: S,
+        final_p1: final_p1,
+        final_p0: final_p0,
+        bitCost: bitCost,
+        dw: [dw0, dw1, dw2],
+        oldWeights: [...state.weights]
+      };
+    }
+
+    function applyStepForward() {
+      if (state.currentIndex >= state.bits.length) {
+        stopAutoPlay();
+        return;
+      }
+
+      const step = computeCurrentBitStep();
+      if (!step) return;
+
+      // Save history for step back
+      state.history.push(step);
+
+      // Update Weights
+      state.weights[0] += step.dw[0];
+      state.weights[1] += step.dw[1];
+      state.weights[2] += step.dw[2];
+
+      // Update Model Context Counts for bit y
+      const y = step.y;
+      state.m0_counts[y]++;
+
+      if (!state.m1_tables[step.m1.ctx]) state.m1_tables[step.m1.ctx] = [1, 1];
+      state.m1_tables[step.m1.ctx][y]++;
+
+      if (!state.m2_tables[step.m2.ctx]) state.m2_tables[step.m2.ctx] = [1, 1];
+      state.m2_tables[step.m2.ctx][y]++;
+
+      // Metrics
+      state.totalCompressedBits += step.bitCost;
+
+      // Decompressor receives bit y symmetrically
+      state.decompressedBits.push(y);
+
+      // Increment index
+      state.currentIndex++;
+
+      updateBitStreamVisuals();
+      updateUI(step);
+    }
+
+    function applyStepBackward() {
+      if (state.currentIndex <= 0 || state.history.length === 0) return;
+
+      const lastStep = state.history.pop();
+
+      // Restore Weights
+      state.weights = [...lastStep.oldWeights];
+
+      // Restore Counts
+      const y = lastStep.y;
+      state.m0_counts[y]--;
+
+      if (state.m1_tables[lastStep.m1.ctx]) {
+        state.m1_tables[lastStep.m1.ctx][y]--;
+      }
+      if (state.m2_tables[lastStep.m2.ctx]) {
+        state.m2_tables[lastStep.m2.ctx][y]--;
+      }
+
+      state.totalCompressedBits -= lastStep.bitCost;
+      state.decompressedBits.pop();
+
+      state.currentIndex--;
+
+      updateBitStreamVisuals();
+      
+      // Get step state for index after step back
+      const currentStep = computeCurrentBitStep();
+      updateUI(currentStep);
+    }
+
+    function updateUI(step) {
+      if (!step) {
+        step = computeCurrentBitStep();
+      }
+
+      if (elProgressText) elProgressText.textContent = `${state.currentIndex} / ${state.bits.length}`;
+      if (elCurrentBitIdx) elCurrentBitIdx.textContent = state.currentIndex < state.bits.length ? state.currentIndex : "DONE";
+
+      if (elBtnStepPrev) elBtnStepPrev.disabled = state.currentIndex === 0;
+      if (elBtnStepNext) elBtnStepNext.disabled = state.currentIndex >= state.bits.length;
+
+      if (step) {
+        // Model 0
+        if (elM0Counts) elM0Counts.textContent = `${step.m0.counts[0]} : ${step.m0.counts[1]}`;
+        if (elM0P1) elM0P1.textContent = step.m0.p1.toFixed(3);
+        if (elM0X) elM0X.textContent = step.m0.x.toFixed(3);
+
+        // Model 1
+        if (elM1CtxStr) elM1CtxStr.textContent = step.m1.ctx;
+        if (elM1Counts) elM1Counts.textContent = `${step.m1.counts[0]} : ${step.m1.counts[1]}`;
+        if (elM1P1) elM1P1.textContent = step.m1.p1.toFixed(3);
+        if (elM1X) elM1X.textContent = step.m1.x.toFixed(3);
+
+        // Model 2
+        if (elM2CtxStr) elM2CtxStr.textContent = step.m2.ctx;
+        if (elM2Counts) elM2Counts.textContent = `${step.m2.counts[0]} : ${step.m2.counts[1]}`;
+        if (elM2P1) elM2P1.textContent = step.m2.p1.toFixed(3);
+        if (elM2X) elM2X.textContent = step.m2.x.toFixed(3);
+
+        // Mixer
+        if (elMathSumFormula) {
+          elMathSumFormula.innerHTML = `
+            S = (${step.oldWeights[0].toFixed(2)} &times; ${step.m0.x.toFixed(2)}) + 
+                (${step.oldWeights[1].toFixed(2)} &times; ${step.m1.x.toFixed(2)}) + 
+                (${step.oldWeights[2].toFixed(2)} &times; ${step.m2.x.toFixed(2)}) = 
+                <span class="${step.sum >= 0 ? 'text-emerald-400' : 'text-red-400'}">${step.sum.toFixed(3)}</span>
+          `;
+        }
+
+        if (elFinalP0Val) elFinalP0Val.textContent = step.final_p0.toFixed(4);
+        if (elFinalP1Val) elFinalP1Val.textContent = step.final_p1.toFixed(4);
+        if (elBarP0) elBarP0.style.width = `${step.final_p0 * 100}%`;
+        if (elBarP1) elBarP1.style.width = `${step.final_p1 * 100}%`;
+
+        // Weight logs
+        if (elWeightDeltaLog) {
+          if (state.history.length > 0) {
+            const lastH = state.history[state.history.length - 1];
+            elWeightDeltaLog.innerHTML = `
+              Target Bit y = ${lastH.y} | Prediction P(1) = ${lastH.final_p1.toFixed(3)} | Error = ${(lastH.y - lastH.final_p1).toFixed(3)}<br>
+              &Delta;w<sub>0</sub> = ${lastH.dw[0] >= 0 ? '+' : ''}${lastH.dw[0].toFixed(4)} | 
+              &Delta;w<sub>1</sub> = ${lastH.dw[1] >= 0 ? '+' : ''}${lastH.dw[1].toFixed(4)} | 
+              &Delta;w<sub>2</sub> = ${lastH.dw[2] >= 0 ? '+' : ''}${lastH.dw[2].toFixed(4)}
+            `;
+          } else {
+            elWeightDeltaLog.textContent = "Ready for step 0 execution...";
+          }
+        }
+      }
+
+      // Render Weights
+      const w0 = state.weights[0];
+      const w1 = state.weights[1];
+      const w2 = state.weights[2];
+      if (elW0Val) elW0Val.textContent = w0.toFixed(4);
+      if (elW1Val) elW1Val.textContent = w1.toFixed(4);
+      if (elW2Val) elW2Val.textContent = w2.toFixed(4);
+
+      const maxW = Math.max(0.1, Math.abs(w0) + Math.abs(w1) + Math.abs(w2));
+      if (elW0Bar) elW0Bar.style.width = `${Math.min(100, Math.max(5, (Math.abs(w0) / maxW) * 100))}%`;
+      if (elW1Bar) elW1Bar.style.width = `${Math.min(100, Math.max(5, (Math.abs(w1) / maxW) * 100))}%`;
+      if (elW2Bar) elW2Bar.style.width = `${Math.min(100, Math.max(5, (Math.abs(w2) / maxW) * 100))}%`;
+
+      // Render Compressed Size metrics
+      if (elTotalCompressedBits) elTotalCompressedBits.textContent = state.totalCompressedBits.toFixed(2);
+      const ratio = state.currentIndex > 0 ? (state.totalCompressedBits / state.currentIndex) : 0;
+      if (elBpcRatio) elBpcRatio.textContent = ratio.toFixed(3);
+
+      // Decompressed text representation
+      renderDecompressionStatus();
+    }
+
+    function renderDecompressionStatus() {
+      if (!elDecompressedStream || !elMatchStatus) return;
+
+      if (state.decompressedBits.length === 0) {
+        elDecompressedStream.textContent = "[Awaiting stream start...]";
+        elMatchStatus.textContent = "READY";
+        elMatchStatus.className = "px-2 py-0.5 rounded text-[10px] font-bold bg-slate-700 text-slate-300";
+        return;
+      }
+
+      const bitStr = state.decompressedBits.join('');
+      let display = bitStr;
+      
+      // If original input was text, also show text conversion
+      const rawInput = elInputText ? elInputText.value : "";
+      if (!/^[01]+$/.test(rawInput) && state.decompressedBits.length % 8 === 0) {
+        const decodedChar = bitsToChar(state.decompressedBits);
+        display = `${bitStr} ("${decodedChar}")`;
+      }
+
+      elDecompressedStream.textContent = display;
+
+      // Match Verification
+      const isMatching = state.decompressedBits.every((b, i) => b === state.bits[i]);
+      if (isMatching) {
+        if (state.currentIndex === state.bits.length) {
+          elMatchStatus.textContent = "MATCH PERFECT (100%)";
+          elMatchStatus.className = "px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-900/80 text-emerald-300 border border-emerald-600";
+        } else {
+          elMatchStatus.textContent = "SYNCHRONIZED";
+          elMatchStatus.className = "px-2 py-0.5 rounded text-[10px] font-bold bg-blue-900/80 text-blue-300";
+        }
+      } else {
+        elMatchStatus.textContent = "DESYNC ERROR";
+        elMatchStatus.className = "px-2 py-0.5 rounded text-[10px] font-bold bg-red-900/80 text-red-300";
+      }
+    }
+
+    // Auto Play Controls
+    function toggleAutoPlay() {
+      if (state.isPlaying) {
+        stopAutoPlay();
+      } else {
+        startAutoPlay();
+      }
+    }
+
+    function startAutoPlay() {
+      if (state.currentIndex >= state.bits.length) {
+        initSimulation();
+      }
+      state.isPlaying = true;
+      if (elPlayIcon) elPlayIcon.className = "fa-solid fa-pause";
+      if (elPlayText) elPlayText.textContent = "Pause";
+      state.timer = setInterval(() => {
+        if (state.currentIndex < state.bits.length) {
+          applyStepForward();
+        } else {
+          stopAutoPlay();
+        }
+      }, state.speed);
+    }
+
+    function stopAutoPlay() {
+      state.isPlaying = false;
+      if (state.timer) clearInterval(state.timer);
+      state.timer = null;
+      if (elPlayIcon) elPlayIcon.className = "fa-solid fa-play";
+      if (elPlayText) elPlayText.textContent = "Auto Play";
+    }
+
+    // Event Listeners
+    if (elBtnInit) elBtnInit.addEventListener('click', initSimulation);
+    if (elBtnStepNext) elBtnStepNext.addEventListener('click', () => {
+      stopAutoPlay();
+      applyStepForward();
+    });
+    if (elBtnStepPrev) elBtnStepPrev.addEventListener('click', () => {
+      stopAutoPlay();
+      applyStepBackward();
+    });
+    if (elBtnPlay) elBtnPlay.addEventListener('click', toggleAutoPlay);
+
+    if (elPresetSelect) elPresetSelect.addEventListener('change', (e) => {
+      if (elInputText) elInputText.value = e.target.value;
+      initSimulation();
+    });
+
+    if (elInputText) elInputText.addEventListener('input', () => {
+      initSimulation();
+    });
+
+    if (elEtaSlider) elEtaSlider.addEventListener('input', (e) => {
+      state.learningRate = parseFloat(e.target.value);
+      if (elEtaVal) elEtaVal.textContent = state.learningRate.toFixed(2);
+    });
+
+    if (elSpeedSlider) elSpeedSlider.addEventListener('input', (e) => {
+      state.speed = parseInt(e.target.value);
+      if (elSpeedVal) elSpeedVal.textContent = `${state.speed}ms`;
+      if (state.isPlaying) {
+        stopAutoPlay();
+        startAutoPlay();
+      }
+    });
+
+    // On Load Initial setup
+    window.addEventListener('DOMContentLoaded', () => {
+      initSimulation();
+    });
+  </script>
+</body>
+</html>
