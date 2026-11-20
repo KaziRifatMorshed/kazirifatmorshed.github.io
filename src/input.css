@@ -4,7 +4,12 @@
 
 @font-face {
     font-family: myCalibriLight;
-    src: url("./font/Calibri-Light.woff");
+    src: url("./font/Calibri-Light.woff") format("woff");
+    font-display: swap;
+}
+
+:root {
+    color-scheme: light dark;
 }
 
 @layer base {

@@ -7,12 +7,12 @@
     <body class="min-h-screen text-black antialiased">
         <div id="full_body" class="relative min-h-screen">
             <div id="telegram_button" class="fixed left-1.5 bottom-1.5 z-50 block transition-transform duration-200 hover:scale-110">
-                <a href="https://www.t.me/FiXiReULV">
-                    <img src="{{ site.baseurl }}/icons/telegram.svg" alt="Contact me in telegram (Most Preferable)" id="telegram_button-icon" class="h-[50px] w-auto" />
+                <a href="https://www.t.me/FiXiReULV" aria-label="Contact me on Telegram (Most Preferable)">
+                    <img src="{{ site.baseurl }}/icons/telegram.svg" alt="" id="telegram_button-icon" class="h-[50px] w-auto" width="50" height="50" decoding="async" />
                 </a>
             </div>
-            <button type="button" onclick="showBG()" id="ShowBG" class="fixed right-2.5 bottom-2.5 z-50 w-[30px] h-[30px] rounded-xl border border-[rgba(255,165,165,0.336)] bg-[rgba(255,165,165,0.336)] hover:bg-[rgba(185,118,118,0.336)] hover:border-black transition-colors duration-200 flex items-center justify-center cursor-pointer">
-                <i class="fa-regular fa-flag"></i>
+            <button type="button" onclick="showBG()" id="ShowBG" aria-label="Toggle main content visibility" aria-pressed="false" class="fixed right-2.5 bottom-2.5 z-50 w-[30px] h-[30px] rounded-xl border border-[rgba(255,165,165,0.336)] bg-[rgba(255,165,165,0.336)] hover:bg-[rgba(185,118,118,0.336)] hover:border-black transition-colors duration-200 flex items-center justify-center cursor-pointer">
+                <i class="fa-regular fa-flag" aria-hidden="true"></i>
             </button>
 
             {% include header.html %}

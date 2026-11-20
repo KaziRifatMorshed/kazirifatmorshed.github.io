@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Interactive Context Mixing Compression & Decompression Demo</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous" referrerpolicy="no-referrer">
   <style>
     .font-mono-code { font-family: 'Fira Code', 'Courier New', Courier, monospace; }
     .transition-all-custom { transition: all 0.3s ease-in-out; }
@@ -605,10 +607,9 @@
 
     function renderBitStreamBoxes() {
       if (!elBitStreamContainer) return;
-      elBitStreamContainer.innerHTML = '';
       if (elBitLengthBadge) elBitLengthBadge.textContent = `${state.bits.length} bits`;
       
-      state.bits.forEach((b, idx) => {
+      const boxes = state.bits.map((b, idx) => {
         const box = document.createElement('div');
         box.id = `bit-box-${idx}`;
         box.className = `w-7 h-8 flex flex-col items-center justify-center rounded font-mono text-xs font-bold transition-all border ${getBitBoxClass(idx)}`;
@@ -616,8 +617,9 @@
           <span>${b}</span>
           <span class="text-[8px] font-normal opacity-60">${idx}</span>
         `;
-        elBitStreamContainer.appendChild(box);
+        return box;
       });
+      elBitStreamContainer.replaceChildren(...boxes);
     }
 
     function getBitBoxClass(idx) {
